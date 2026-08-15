@@ -1,16 +1,12 @@
 import { education } from '../data/content';
 import FadeIn from './FadeIn';
+import SectionHeader from './interactive/SectionHeader';
 
 export default function Education() {
   return (
     <section id="education" className="border-t border-line/70">
       <div className="mx-auto max-w-6xl px-5 py-24">
-        <p className="font-mono text-xs uppercase tracking-[0.28em] text-signal">
-          Studies
-        </p>
-        <h2 className="mt-3 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
-          Education
-        </h2>
+        <SectionHeader kicker="Studies" title="Education" />
         <div className="mt-12 grid gap-5 md:grid-cols-2">
           {education.map((item, index) => (
             <FadeIn key={item.school} delay={index * 0.08}>

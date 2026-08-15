@@ -1,6 +1,9 @@
 ---
 import '../styles/global.css';
+import { ClientRouter, fade } from 'astro:transitions';
 import { site } from '../data/content';
+import CustomCursor from '../components/interactive/CustomCursor';
+import HiddenBug from '../components/interactive/HiddenBug';
 
 interface Props {
   title?: string;
@@ -11,7 +14,7 @@ const { title = site.title, description = site.description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" transition:animate={fade({ duration: '0.4s' })}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,9 +25,10 @@ const { title = site.title, description = site.description } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
+    <ClientRouter />
     <title>{title}</title>
   </head>
   <body class="grid-bg glow-spot antialiased">
@@ -34,6 +38,8 @@ const { title = site.title, description = site.description } = Astro.props;
     >
       Skip to content
     </a>
+    <CustomCursor client:idle />
+    <HiddenBug client:idle />
     <slot />
   </body>
 </html>

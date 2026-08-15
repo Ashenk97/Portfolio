@@ -1,21 +1,21 @@
 export const profile = {
   name: 'Ashen Kavinda',
-  role: 'Software Quality Assurance Engineer',
+  role: 'Senior Software Quality Assurance Engineer',
   headline:
-    'I specialize in test automation and building reliable repositories.',
+    'I lead test automation strategy and build quality systems that keep releases reliable.',
   about:
-    'I am a dedicated and ambitious Software Quality Assurance professional with a strong passion for ensuring excellence in software development. Highly organized and self-motivated, I thrive on learning new skills and expanding my expertise. Throughout my career, I have demonstrated a strong commitment to quality, excelling both as an individual contributor and a collaborative team player.',
+    'Senior QA engineer with a focus on automation architecture, risk-based coverage, and shipping software that holds up in production. I design Playwright and TypeScript suites, API and performance checks, and CI-backed quality gates — then partner with engineering and product to catch defects early, reduce leakage, and keep repositories maintainable as the product grows.',
   location: 'Kurunegala, Sri Lanka',
   phone: '+94 71 0948 240',
   phoneHref: 'tel:+94710948240',
   email: 'ashenk720@gmail.com',
   linkedin: 'https://www.linkedin.com/in/ashenk97/',
   personalSkills: [
-    'Analytical skills',
-    'Problem solving',
-    'Time management',
+    'Test strategy',
+    'Automation architecture',
+    'Risk-based testing',
+    'Stakeholder collaboration',
     'Attention to detail',
-    'Interpersonal skills',
   ],
 } as const;
 
@@ -155,7 +155,7 @@ export const projects: Project[] = [
     name: 'GENKI',
     tag: 'Brand / Commerce',
     description:
-      'Streetwear and anime-inspired apparel brand. Placeholder card for the storefront, lookbook, and quality pipeline behind the label.',
+      'Streetwear and anime-inspired apparel brand. Placeholder card for the storefront and quality pipeline behind the label.',
     status: 'featured',
   },
   {
@@ -211,14 +211,47 @@ export const techStack: TechItem[] = [
 ];
 
 export const nav = [
-  { href: '#experience', label: 'Experience' },
-  { href: '#certifications', label: 'Certifications' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#stack', label: 'Tech stack' },
-  { href: '#education', label: 'Education' },
+  { href: '/#experience', label: 'Experience' },
+  { href: '/#lab', label: 'Lab' },
+  { href: '/#projects', label: 'Projects' },
+  { href: '/#roadmap', label: 'Roadmap' },
+  { href: '/#stack', label: 'Tech stack' },
 ] as const;
+
+export const qaInAction = {
+  fileName: 'homepage.spec.ts',
+  mediaSrc: '',
+  poster: '',
+} as const;
+
+export const roadmap = [
+  {
+    id: 'ctal-tae',
+    status: 'completed' as const,
+    title: 'ISTQB Advanced Level Test Automation Engineering',
+    meta: 'CTAL-TAE · completed',
+    detail:
+      'Automation architecture, maintainable test design, and CI-integrated suites — the advanced credential for building reliable repositories.',
+  },
+  {
+    id: 'ai-testing',
+    status: 'in-progress' as const,
+    title: 'ISTQB AI Testing',
+    meta: 'Exam in progress',
+    detail:
+      'Preparing for the AI Testing syllabus: evaluating ML-assisted quality, risk in non-deterministic systems, and test strategies for intelligent products.',
+  },
+  {
+    id: 'msc-it',
+    status: 'future' as const,
+    title: 'Master of Science in IT',
+    meta: 'SLIIT · upcoming',
+    detail:
+      'Planned postgraduate study at SLIIT, deepening software engineering and quality practice on top of the B.Sc (Hons) in IT.',
+  },
+];
 
 export const site = {
   title: `${profile.name} · ${profile.role}`,
-  description: `${profile.name} is a ${profile.role} specializing in test automation and building reliable repositories. ISTQB Foundation Level. Based in ${profile.location}.`,
+  description: `${profile.name} is a ${profile.role} who leads test automation strategy, Playwright and TypeScript suites, and CI-backed quality gates. Based in ${profile.location}.`,
 } as const;

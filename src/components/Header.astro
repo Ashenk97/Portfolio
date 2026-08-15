@@ -3,10 +3,11 @@ import { nav, profile } from '../data/content';
 ---
 
 <header
+  transition:persist="site-header"
   class="sticky top-0 z-40 border-b border-line/70 bg-void/80 backdrop-blur-md"
 >
   <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4">
-    <a href="#hero" class="group flex items-center gap-3 no-underline">
+    <a href="/" class="group flex items-center gap-3 no-underline">
       <span
         class="grid h-9 w-9 place-items-center rounded-lg border border-signal/40 bg-signal/10 font-mono text-xs font-medium tracking-wider text-signal"
       >
@@ -17,12 +18,12 @@ import { nav, profile } from '../data/content';
       </span>
     </a>
 
-    <nav aria-label="Primary" class="hidden items-center gap-6 lg:flex">
+    <nav aria-label="Primary" class="hidden items-center gap-4 xl:gap-5 lg:flex">
       {
         nav.map((item) => (
           <a
             href={item.href}
-            class="font-mono text-xs uppercase tracking-[0.18em] text-mist transition-colors hover:text-signal"
+            class="font-mono text-[11px] uppercase tracking-[0.16em] text-mist transition-colors hover:text-signal"
           >
             {item.label}
           </a>

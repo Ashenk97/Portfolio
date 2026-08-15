@@ -11,10 +11,10 @@ import { profile } from '../data/content';
       {profile.role}
     </p>
     <div class="max-w-4xl space-y-6">
-      <h1 class="text-4xl font-extrabold leading-[1.05] tracking-tight text-paper sm:text-6xl md:text-7xl">
+      <h1 class="text-4xl leading-[1.05] text-paper sm:text-6xl md:text-7xl">
         {profile.name}
       </h1>
-      <p class="max-w-3xl text-xl font-semibold leading-snug text-paper/90 sm:text-2xl">
+      <p class="max-w-3xl text-xl font-medium leading-relaxed tracking-[-0.02em] text-paper/90 sm:text-2xl">
         {profile.headline}
       </p>
       <p class="max-w-3xl text-base leading-relaxed text-mist sm:text-lg">
@@ -32,7 +32,7 @@ import { profile } from '../data/content';
     </ul>
     <div class="flex flex-wrap items-center gap-6">
       <a
-        href="#experience"
+        href="/#experience"
         class="rounded-full bg-signal px-6 py-3 text-sm font-semibold text-signal-fg transition hover:brightness-110"
       >
         View experience

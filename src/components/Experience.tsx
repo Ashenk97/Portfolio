@@ -1,16 +1,12 @@
 import { experience } from '../data/content';
 import FadeIn from './FadeIn';
+import SectionHeader from './interactive/SectionHeader';
 
 export default function Experience() {
   return (
     <section id="experience" className="border-t border-line/70">
       <div className="mx-auto max-w-6xl px-5 py-24">
-        <p className="font-mono text-xs uppercase tracking-[0.28em] text-signal">
-          Work
-        </p>
-        <h2 className="mt-3 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
-          Quality engineering across product teams.
-        </h2>
+        <SectionHeader kicker="Work" title="Quality engineering across product teams." />
 
         <ol className="mt-12 space-y-6">
           {experience.map((job, index) => (

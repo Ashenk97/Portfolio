@@ -1,16 +1,15 @@
 import { certifications } from '../data/content';
 import FadeIn from './FadeIn';
+import SectionHeader from './interactive/SectionHeader';
 
 export default function Certifications() {
   return (
     <section id="certifications" className="border-t border-line/70">
       <div className="mx-auto max-w-6xl px-5 py-24">
-        <p className="font-mono text-xs uppercase tracking-[0.28em] text-signal">
-          Credentials
-        </p>
-        <h2 className="mt-3 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
-          Certified in the fundamentals of software testing.
-        </h2>
+        <SectionHeader
+          kicker="Credentials"
+          title="Certified in the fundamentals of software testing."
+        />
 
         <div className="mt-12 grid gap-5">
           {certifications.map((certification, index) => (
