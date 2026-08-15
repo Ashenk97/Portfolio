@@ -1,0 +1,73 @@
+---
+import { nav, profile } from '../data/content';
+---
+
+<header
+  class="sticky top-0 z-40 border-b border-line/70 bg-void/80 backdrop-blur-md"
+>
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4">
+    <a href="#hero" class="group flex items-center gap-3 no-underline">
+      <span
+        class="grid h-9 w-9 place-items-center rounded-lg border border-signal/40 bg-signal/10 font-mono text-xs font-medium tracking-wider text-signal"
+      >
+        AK
+      </span>
+      <span class="text-sm font-semibold tracking-wide text-paper">
+        {profile.name}
+      </span>
+    </a>
+
+    <nav aria-label="Primary" class="hidden items-center gap-6 lg:flex">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            class="font-mono text-xs uppercase tracking-[0.18em] text-mist transition-colors hover:text-signal"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <a
+      href={profile.linkedin}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="hidden font-mono text-xs uppercase tracking-[0.16em] text-signal md:inline hover:underline"
+    >
+      LinkedIn
+    </a>
+
+    <details class="relative lg:hidden">
+      <summary
+        class="cursor-pointer list-none rounded-md border border-line px-3 py-1.5 font-mono text-xs uppercase tracking-[0.16em] text-mist marker:content-none [&::-webkit-details-marker]:hidden"
+      >
+        Menu
+      </summary>
+      <nav
+        aria-label="Mobile"
+        class="absolute right-0 mt-2 w-52 rounded-lg border border-line bg-panel p-3 shadow-xl"
+      >
+        {
+          nav.map((item) => (
+            <a
+              href={item.href}
+              class="block rounded-md px-3 py-2 font-mono text-xs uppercase tracking-[0.16em] text-mist hover:bg-ink hover:text-signal"
+            >
+              {item.label}
+            </a>
+          ))
+        }
+        <a
+          href={profile.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-1 block rounded-md px-3 py-2 font-mono text-xs uppercase tracking-[0.16em] text-signal hover:bg-ink"
+        >
+          LinkedIn
+        </a>
+      </nav>
+    </details>
+  </div>
+</header>

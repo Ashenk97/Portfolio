@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Syne", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-void: #05070a;
+  --color-ink: #0c1118;
+  --color-panel: #121924;
+  --color-line: #273246;
+  --color-mist: #8f9cb0;
+  --color-paper: #eef3f8;
+  --color-signal: #3ee0c5;
+  --color-signal-fg: #04251f;
+  --color-ember: #ff7a59;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    background-color: var(--color-void);
+    color: var(--color-paper);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background-color: var(--color-signal);
+    color: var(--color-signal-fg);
+  }
+}
+
+@utility grid-bg {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+@utility glow-spot {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgb(62 224 197 / 0.14), transparent 55%),
+    radial-gradient(ellipse 40% 30% at 90% 10%, rgb(255 122 89 / 0.08), transparent 45%);
+}
