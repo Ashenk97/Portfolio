@@ -1,196 +1,68 @@
-import { useMemo, useState } from 'react';
-import { techStack, type TechItem } from '../data/content';
+import { techStack } from '../data/content';
 import FadeIn from './FadeIn';
 import SectionHeader from './interactive/SectionHeader';
 
-const CATEGORY_ORDER = [
-  'Test automation',
-  'API testing',
-  'Test runner',
-  'Assertions',
-  'Performance',
-  'Quality',
-  'Coverage',
-  'Language',
-  'Database',
-  'Version control',
-  'Test management',
-  'Editor',
-  'Build',
-  'Mobile',
+const CORE = [
+  {
+    name: 'Playwright',
+    role: 'UI & API automation',
+    note: 'Fixtures, traces, and the gate that blocks bad releases.',
+  },
+  {
+    name: 'TypeScript',
+    role: 'Typed suites',
+    note: 'Readable page objects and failures that stay honest.',
+  },
+  {
+    name: 'Cursor',
+    role: 'Daily IDE',
+    note: 'Agents for boilerplate. I own the risk calls.',
+  },
 ] as const;
 
 const LAYERS = [
   {
-    id: 'all',
-    label: 'All',
-    categories: null,
+    id: 'automate',
+    label: 'Automate',
+    blurb: 'Coverage that runs before merge.',
+    tools: [
+      'Playwright',
+      'Selenium',
+      'REST Assured',
+      'Mocha',
+      'Chai',
+      'TestNG',
+      'Postman',
+      'Apache JMeter',
+    ],
   },
   {
-    id: 'automation',
-    label: 'Automation',
-    categories: ['Test automation', 'API testing', 'Test runner', 'Assertions', 'Performance'],
+    id: 'assure',
+    label: 'Assure',
+    blurb: 'Signals that the suite still earns trust.',
+    tools: ['SonarQube', 'JaCoCo', 'JIRA'],
   },
   {
-    id: 'quality',
-    label: 'Quality',
-    categories: ['Quality', 'Coverage', 'Test management'],
+    id: 'speak',
+    label: 'Speak',
+    blurb: 'Languages across the stack.',
+    tools: ['TypeScript', 'Java', 'JavaScript', 'Python', 'Dart'],
   },
   {
-    id: 'languages',
-    label: 'Languages',
-    categories: ['Language'],
+    id: 'store',
+    label: 'Store',
+    blurb: 'Data under test.',
+    tools: ['MySQL', 'MongoDB', 'Oracle'],
   },
   {
-    id: 'data',
-    label: 'Data',
-    categories: ['Database'],
-  },
-  {
-    id: 'delivery',
-    label: 'Delivery',
-    categories: ['Version control', 'Editor', 'Build', 'Mobile'],
+    id: 'ship',
+    label: 'Ship',
+    blurb: 'Build, version, and move the work.',
+    tools: ['Cursor', 'GitHub', 'GitLab', 'Bitbucket', 'Maven', 'Flutter'],
   },
 ] as const;
 
-type LayerId = (typeof LAYERS)[number]['id'];
-
-function groupByCategory(items: TechItem[]) {
-  const groups: [string, TechItem[]][] = [];
-
-  for (const category of CATEGORY_ORDER) {
-    const inCategory = items.filter((item) => item.category === category);
-    if (inCategory.length > 0) groups.push([category, inCategory]);
-  }
-
-  return groups;
-}
-
-function Toolkit() {
-  const [layerId, setLayerId] = useState<LayerId>('all');
-  const layer = LAYERS.find((entry) => entry.id === layerId) ?? LAYERS[0];
-
-  const core = useMemo(() => techStack.filter((item) => item.featured), []);
-  const catalog = useMemo(() => techStack.filter((item) => !item.featured), []);
-
-  const scoped = useMemo(() => {
-    if (!layer.categories) return techStack;
-    const allowed = new Set(layer.categories);
-    return techStack.filter((item) => allowed.has(item.category));
-  }, [layer]);
-
-  const visibleGroups = useMemo(() => {
-    const source = layer.categories ? scoped : catalog;
-    return groupByCategory(source);
-  }, [catalog, layer.categories, scoped]);
-
-  const showCore = layer.id === 'all';
-
-  return (
-    <div>
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <p className="font-mono text-xs uppercase tracking-[0.28em] text-signal">The toolkit</p>
-          <p className="mt-3 max-w-2xl text-mist">
-            Layered by how I use it — core stack first, then the catalog across automation,
-            quality, languages, data, and delivery.
-          </p>
-        </div>
-        <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-mist/80" aria-live="polite">
-          {scoped.length} tools
-          {layer.id !== 'all' ? ` · ${layer.label}` : ''}
-        </p>
-      </div>
-
-      <div
-        role="tablist"
-        aria-label="Toolkit layers"
-        className="mt-8 flex gap-1 overflow-x-auto border-b border-line pb-px [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-      >
-        {LAYERS.map((entry) => {
-          const selected = layerId === entry.id;
-          return (
-            <button
-              key={entry.id}
-              type="button"
-              role="tab"
-              aria-selected={selected}
-              onClick={() => setLayerId(entry.id)}
-              className={`shrink-0 border-b-2 px-3 py-2.5 font-mono text-[11px] uppercase tracking-[0.14em] transition ${
-                selected
-                  ? 'border-signal text-signal'
-                  : 'border-transparent text-mist hover:text-paper'
-              }`}
-            >
-              {entry.label}
-            </button>
-          );
-        })}
-      </div>
-
-      {showCore && (
-        <div className="mt-8">
-          <div className="flex items-baseline justify-between gap-4">
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-mist">Core</p>
-            <p className="font-mono text-[11px] text-mist/60">Daily drivers</p>
-          </div>
-          <ul className="mt-4 grid gap-3 md:grid-cols-3">
-            {core.map((item) => (
-              <li
-                key={item.name}
-                data-tech={item.name}
-                className="border border-signal/35 bg-signal/10 px-4 py-5"
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <p className="text-lg font-semibold tracking-tight">{item.name}</p>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-signal">
-                    Core
-                  </span>
-                </div>
-                <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.14em] text-mist">
-                  {item.category}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      <div className="mt-10 space-y-8">
-        {visibleGroups.map(([category, items]) => (
-          <div key={category}>
-            <div className="flex items-baseline justify-between gap-4 border-b border-line pb-2">
-              <h3 className="font-mono text-[11px] uppercase tracking-[0.22em] text-signal">
-                {category}
-              </h3>
-              <span className="font-mono text-[11px] text-mist/60">{items.length}</span>
-            </div>
-            <ul className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-              {items.map((item) => (
-                <li
-                  key={item.name}
-                  data-tech={item.name}
-                  className={`flex items-center justify-between gap-3 border px-4 py-3 ${
-                    item.featured
-                      ? 'border-signal/35 bg-signal/10'
-                      : 'border-line/80 bg-ink/40'
-                  }`}
-                >
-                  <span className="font-medium tracking-tight">{item.name}</span>
-                  {item.featured ? (
-                    <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-signal">
-                      Core
-                    </span>
-                  ) : null}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+const knownTools = new Set(techStack.map((item) => item.name));
 
 export default function TechStack() {
   return (
@@ -198,11 +70,98 @@ export default function TechStack() {
       <div className="mx-auto max-w-6xl px-5 py-24">
         <SectionHeader
           kicker="Under the hood"
-          title="The full toolkit behind the suites."
+          title="What I reach for when coverage has to hold."
         />
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">
+          Three daily drivers up top. Everything else grouped by job — so you can scan the stack
+          in seconds, not scroll a catalog.
+        </p>
 
         <FadeIn className="mt-12">
-          <Toolkit />
+          <div>
+            <div className="flex items-baseline justify-between gap-4">
+              <p className="font-mono text-xs uppercase tracking-[0.28em] text-signal">Core</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-mist/70">
+                Daily drivers
+              </p>
+            </div>
+
+            <ul className="mt-5 grid gap-px overflow-hidden border border-signal/30 bg-signal/20 md:grid-cols-3">
+              {CORE.map((item) => (
+                <li
+                  key={item.name}
+                  data-tech={item.name}
+                  className="bg-ink px-5 py-6 sm:px-6 sm:py-7"
+                >
+                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-signal">
+                    {item.role}
+                  </p>
+                  <p className="mt-3 text-2xl font-semibold tracking-tight">{item.name}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-mist">{item.note}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </FadeIn>
+
+        <FadeIn className="mt-14" delay={0.08}>
+          <div>
+            <div className="flex items-baseline justify-between gap-4">
+              <p className="font-mono text-xs uppercase tracking-[0.28em] text-signal">
+                The toolkit
+              </p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-mist/70">
+                By job
+              </p>
+            </div>
+
+            <dl className="mt-5 divide-y divide-line border-y border-line">
+              {LAYERS.map((layer) => (
+                <div
+                  key={layer.id}
+                  className="grid gap-4 py-6 sm:grid-cols-[11rem_1fr] sm:gap-8 md:grid-cols-[13rem_1fr]"
+                >
+                  <dt>
+                    <p className="text-lg font-semibold tracking-tight">{layer.label}</p>
+                    <p className="mt-1 text-sm leading-relaxed text-mist">{layer.blurb}</p>
+                  </dt>
+                  <dd>
+                    <ul className="flex flex-wrap gap-x-1 gap-y-2">
+                      {layer.tools.map((name, index) => {
+                        const featured = techStack.some(
+                          (item) => item.name === name && item.featured,
+                        );
+                        return (
+                          <li key={name} className="flex items-center gap-1">
+                            {index > 0 ? (
+                              <span className="px-1 font-mono text-mist/35" aria-hidden="true">
+                                ·
+                              </span>
+                            ) : null}
+                            <span
+                              data-tech={
+                                knownTools.has(name) &&
+                                !CORE.some((core) => core.name === name)
+                                  ? name
+                                  : undefined
+                              }
+                              className={
+                                featured
+                                  ? 'font-medium tracking-tight text-signal'
+                                  : 'tracking-tight text-paper'
+                              }
+                            >
+                              {name}
+                            </span>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
         </FadeIn>
       </div>
     </section>
