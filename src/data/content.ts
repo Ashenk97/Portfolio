@@ -4,7 +4,7 @@ export const profile = {
   headline:
     'I lead test automation strategy and build quality systems that keep releases reliable.',
   about:
-    'Senior QA engineer with a focus on automation architecture, risk-based coverage, and shipping software that holds up in production. I design Playwright and TypeScript suites, API and performance checks, and CI-backed quality gates — then partner with engineering and product to catch defects early, reduce leakage, and keep repositories maintainable as the product grows.',
+    'I focus on automation architecture, risk-based coverage, and software that holds up in production. I design Playwright and TypeScript suites, API and performance checks, and CI quality gates. Then I work with engineering and product to catch defects early and keep the suite maintainable as the product grows.',
   location: 'Kurunegala, Sri Lanka',
   phone: '+94 71 0948 240',
   phoneHref: 'tel:+94710948240',
@@ -51,7 +51,7 @@ export const certifications: Certification[] = [
     date: 'Certified',
     featured: true,
     summary:
-      'Advanced credential for automation architecture, maintainable test design, and CI-integrated suites — pinned next to the strategy work this site argues for.',
+      'The advanced credential for automation architecture, clean test design, and suites that live in CI.',
   },
   {
     name: 'ISTQB Certified Tester',
@@ -60,7 +60,7 @@ export const certifications: Certification[] = [
     issuer: 'SLSTB / ISTQB',
     date: 'March 2025',
     summary:
-      'Foundation-level certification covering core testing principles, test design techniques, and quality processes used across the software development lifecycle.',
+      'The foundation: testing principles, design techniques, and quality processes used across the software lifecycle.',
   },
 ];
 
@@ -91,11 +91,11 @@ export const experience: Experience[] = [
       },
     ],
     bullets: [
-      'Conduct UI and API testing to ensure software reliability and a seamless user experience.',
-      'Developed and automated end-to-end test cases using Playwright with TypeScript, reducing manual effort.',
-      'Implemented assertions and structured test execution with Mocha and Chai, improving test accuracy.',
-      'Designed and maintained test plans, test cases, and scripts, increasing test coverage.',
-      'Collaborate with developers and product teams to identify issues early and enhance software quality.',
+      'Test UI and APIs so the product stays reliable and the experience stays smooth.',
+      'Build end-to-end coverage in Playwright and TypeScript, cutting the manual grind.',
+      'Structure runs with Mocha and Chai so assertions stay clear and failures stay honest.',
+      'Own test plans, cases, and scripts as coverage grows.',
+      'Work with developers and product to catch issues early.',
     ],
   },
   {
@@ -115,17 +115,17 @@ export const experience: Experience[] = [
       },
     ],
     bullets: [
-      'Performed manual UI and API testing across multiple projects, improving defect detection.',
-      'Automated API tests using REST Assured, reducing regression testing time.',
-      'Designed, executed, and managed test cases and defect tracking, reducing defect leakage.',
-      'Conducted performance testing using Apache JMeter, identifying system bottlenecks and improving response time.',
-      'Developed code coverage reports with SonarQube and JaCoCo, increasing test reliability and maintainability.',
-      'Worked within an Agile/Scrum environment, collaborating with cross-functional teams to improve test strategies.',
-      'Used JIRA, MySQL Workbench, IntelliJ IDEA, and Robo 3T for efficient test management.',
+      'Tested UI and APIs across projects, catching more defects in-cycle.',
+      'Automated API checks with REST Assured, cutting regression time.',
+      'Designed and ran cases, then tracked defects so fewer bugs leaked.',
+      'Ran JMeter performance tests, found bottlenecks, and improved response time.',
+      'Built coverage reports with SonarQube and JaCoCo to keep the suite trustworthy.',
+      'Worked in Agile/Scrum with cross-functional teams to sharpen test strategy.',
+      'Used JIRA, MySQL Workbench, IntelliJ IDEA, and Robo 3T to keep test work moving.',
     ],
   },
   {
-    company: 'Vidura Solutions Pvt LTD',
+    company: 'Vidura Solutions Pvt Ltd',
     start: 'May 2021',
     end: 'Nov 2021',
     roles: [
@@ -136,8 +136,8 @@ export const experience: Experience[] = [
       },
     ],
     bullets: [
-      'Developed mobile applications using Android (Java), Flutter, and Firebase.',
-      'Contributed to UI/UX enhancements, improving app performance and user engagement.',
+      'Built mobile apps with Android (Java), Flutter, and Firebase.',
+      'Improved UI and UX so the apps felt faster and easier to use.',
     ],
   },
 ];
@@ -155,13 +155,13 @@ export const education: Education[] = [
     school: 'SLIIT',
     credential: 'Master of Science in Information Technology',
     years: '2026 — Present',
-    detail: 'In progress · deepening software engineering and quality leadership.',
+    detail: 'In progress · software engineering and quality leadership.',
     current: true,
   },
   {
     school: 'SLIIT',
     credential:
-      'B.Sc (Hons) in Information Technology specializing in Software Engineering',
+      'B.Sc (Hons) in Information Technology, specializing in Software Engineering',
     years: '2018 — 2022',
   },
   {
@@ -193,7 +193,7 @@ export const projects: Project[] = [
     name: 'GENKI',
     tag: 'Brand / Commerce',
     description:
-      'Streetwear and anime-inspired apparel brand. The storefront is treated like a product under test — checkout, inventory, and visual paths gated before a customer ever sees a break.',
+      'Streetwear and anime-inspired apparel. The storefront is treated like a product under test — checkout, inventory, and visuals gated before a customer ever sees a break.',
     status: 'featured',
     metrics: [
       { value: 'Pre-launch', label: 'Visual regressions gated' },
@@ -206,7 +206,7 @@ export const projects: Project[] = [
     name: 'Playwright E2E at WealthOS',
     tag: 'Test automation',
     description:
-      'A typed Playwright architecture that replaced brittle manual regression with maintainable UI and API coverage — blocking a critical UI break before production and shrinking the wait for a green deploy.',
+      'A typed Playwright setup that replaced brittle manual regression with clean UI and API coverage. It blocked a critical UI break before production and cut the wait for a green deploy.',
     status: 'coming-soon',
     metrics: [
       { value: '40%', label: 'Faster deploy confidence' },
@@ -216,13 +216,13 @@ export const projects: Project[] = [
   },
   {
     slug: 'pearson-quality',
-    name: 'API & performance quality',
+    name: 'API and performance quality',
     tag: 'Testing',
     description:
-      'REST Assured suites and JMeter profiles that cut API regression time, reduced leakage through structured cases, and surfaced bottlenecks before they reached users — with SonarQube and JaCoCo keeping the suite honest.',
+      'REST Assured suites and JMeter profiles that cut API regression time, caught leaks earlier, and found bottlenecks before users did. SonarQube and JaCoCo kept the suite honest.',
     status: 'coming-soon',
     metrics: [
-      { value: 'Hours back', label: 'API regression time cut' },
+      { value: 'Hours saved', label: 'API regression time cut' },
       { value: 'Leakage ↓', label: 'Defects caught in-cycle' },
       { value: 'JMeter', label: 'Bottlenecks before prod' },
     ],
@@ -279,7 +279,7 @@ export const codeSnippets: CodeSnippet[] = [
     fileName: 'fixtures/portfolio.ts',
     language: 'ts',
     caption:
-      'A page object wired as a fixture so sanity checks stay readable as the suite grows.',
+      'A page object as a fixture — sanity checks stay readable as the suite grows.',
     code: `import { test as base, expect, type Page } from '@playwright/test';
 
 class Portfolio {
@@ -309,7 +309,7 @@ export const test = base.extend<{ portfolio: Portfolio }>({
     fileName: 'mocks/release-gate.ts',
     language: 'ts',
     caption:
-      'Stub the release-gate API so UI tests stay deterministic when the backend is noisy.',
+      'Stub the release-gate API so UI tests stay steady when the backend is noisy.',
     code: `import { test, expect } from '@playwright/test';
 
 test('release board reflects quality gates', async ({ page }) => {
@@ -335,7 +335,7 @@ test('release board reflects quality gates', async ({ page }) => {
     fileName: '.github/workflows/playwright.yml',
     language: 'yml',
     caption:
-      'The same workflow that badges this lab — Chromium against the portfolio on every push.',
+      'The workflow behind the lab badge. Chromium against this site on every push.',
     code: `name: Playwright
 
 on:
@@ -401,7 +401,7 @@ export const roadmap = [
     title: 'ISTQB Advanced Level Test Automation Engineering',
     meta: 'CTAL-TAE · completed',
     detail:
-      'Automation architecture, maintainable test design, and CI-integrated suites — the floor this trajectory builds on.',
+      'Automation architecture, clean test design, and CI-backed suites — the foundation everything else builds on.',
   },
   {
     id: 'msc-it',
@@ -409,7 +409,7 @@ export const roadmap = [
     title: 'Master of Science in IT',
     meta: 'SLIIT · in progress',
     detail:
-      'Ongoing postgraduate study at SLIIT — compounding software engineering and quality practice on top of the B.Sc (Hons) in IT.',
+      'Postgraduate study at SLIIT, building on the B.Sc (Hons) in IT with deeper software engineering and quality practice.',
   },
   {
     id: 'ai-testing',
@@ -417,7 +417,7 @@ export const roadmap = [
     title: 'ISTQB AI Testing',
     meta: 'Exam prep in progress',
     detail:
-      'Preparing for the AI Testing syllabus: evaluating ML-assisted quality, risk in non-deterministic systems, and test strategies for intelligent products.',
+      'Studying the AI Testing syllabus: how to test ML-assisted quality, handle non-deterministic risk, and design strategy for intelligent products.',
   },
 ];
 
@@ -435,25 +435,24 @@ export type UsesGroup = {
 
 export const usesPage = {
   title: `${profile.name} · Uses`,
-  description: `Hardware, editors, and the quality stack ${profile.name} uses to design suites, read traces, and ship with confidence.`,
+  description: `The workstation, editors, and quality stack ${profile.name} uses to design suites, read traces, and ship with confidence.`,
   headline: 'The setup behind the suites.',
   intro:
-    'A behind-the-scenes look at the workstation, editor, and frameworks I use to design risk-based coverage, read traces, and keep repositories maintainable. Edit the hardware line items in content.ts if a monitor or keyboard changes.',
+    'A look at the workstation, editor, and frameworks I use to design coverage, read traces, and ship with confidence.',
   groups: [
     {
       id: 'workstation',
       title: 'Workstation',
-      blurb: 'Windows daily driver, built for logs on one side and the spec on the other.',
+      blurb: 'Windows daily driver. Spec on one side, logs on the other.',
       items: [
         {
           name: 'Windows workstation',
-          detail:
-            'Daily driver for suites, traces, and reviews. Bash in Windows Terminal — same shell this repo assumes.',
+          detail: 'Where suites, traces, and reviews happen. Bash in Windows Terminal.',
         },
         {
           name: 'Extended desktop',
           detail:
-            'Product and spec on one display, Playwright traces, CI logs, and the failing assertion on the other.',
+            'Product and spec on one screen. Playwright traces, CI logs, and the failing assertion on the other.',
         },
         {
           name: 'Kurunegala, Sri Lanka',
@@ -464,28 +463,27 @@ export const usesPage = {
     {
       id: 'editor',
       title: 'Editor & terminal',
-      blurb: 'The environment I actually live in between test runs.',
+      blurb: 'Where I live between test runs.',
       items: [
         {
           name: 'Cursor',
-          detail: 'Daily-driver IDE. Agents for the boilerplate, me for the risk calls.',
+          detail: 'Daily-driver IDE. Agents handle the boilerplate. I make the risk calls.',
         },
         {
           name: 'Windows Terminal + bash',
-          detail: 'Playwright, git, and npm without leaving the keyboard.',
+          detail: 'Playwright, git, and npm — without leaving the keyboard.',
         },
         {
           name: 'JetBrains Mono',
-          detail: 'The same monospace on this site and in the terminal — traces stay readable.',
+          detail: 'The same monospace on this site and in the terminal. Traces stay readable.',
         },
         {
           name: 'Void / signal dark theme',
-          detail:
-            'Ink backgrounds, signal-green passes, ember for attention. Matches the lab on this site.',
+          detail: 'Ink backgrounds, signal-green passes, ember for attention. Same look as the lab.',
         },
         {
           name: 'IntelliJ IDEA',
-          detail: 'Still the home for Java, REST Assured, TestNG, and Maven work.',
+          detail: 'Still home for Java, REST Assured, TestNG, and Maven.',
         },
       ],
     },
@@ -496,11 +494,11 @@ export const usesPage = {
       items: [
         {
           name: 'Playwright + TypeScript',
-          detail: 'UI and API coverage, fixtures, and traces. This portfolio is under the same suite.',
+          detail: 'UI and API coverage, fixtures, and traces. This site runs under the same suite.',
         },
         {
           name: 'Mocha + Chai',
-          detail: 'Structured execution and assertions when the runner needs to stay familiar.',
+          detail: 'Clear runs and honest assertions when the team already knows the runner.',
         },
         {
           name: 'REST Assured + Postman',
@@ -519,7 +517,7 @@ export const usesPage = {
     {
       id: 'delivery',
       title: 'Delivery & collaboration',
-      blurb: 'Where defects, branches, and conversations actually live.',
+      blurb: 'Where defects, branches, and conversations live.',
       items: [
         {
           name: 'GitHub Actions',
@@ -527,7 +525,7 @@ export const usesPage = {
         },
         {
           name: 'GitHub / GitLab / Bitbucket',
-          detail: 'Wherever the product repository lives, the quality gate follows.',
+          detail: 'Wherever the product repo lives, the quality gate follows.',
         },
         {
           name: 'JIRA',
@@ -535,7 +533,7 @@ export const usesPage = {
         },
         {
           name: 'Astro + Tailwind CSS',
-          detail: 'This site — static first, React islands only where motion earns the bytes.',
+          detail: 'This site. Static first. React only where motion earns the bytes.',
         },
       ],
     },
@@ -543,6 +541,6 @@ export const usesPage = {
 } as const;
 
 export const site = {
-  title: `${profile.name} · ${profile.role}`,
-  description: `${profile.name} is a ${profile.role} who leads test automation strategy, Playwright and TypeScript suites, and CI-backed quality gates. Based in ${profile.location}.`,
+  title: `${profile.name} · Senior QA`,
+  description: `${profile.name} is a ${profile.role} who leads test automation strategy, Playwright and TypeScript suites, and CI quality gates. Based in ${profile.location}.`,
 } as const;

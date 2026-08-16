@@ -1,6 +1,6 @@
 # Personal Portfolio
 
-Static Astro portfolio for a Software Quality Assurance Engineer. Dark theme by default, React + Framer Motion only as islands, and Playwright covering the homepage. Content lives in `src/data/content.ts` — no CMS, no paid APIs, no premium libraries.
+Static Astro portfolio for a Software Quality Assurance Engineer. Dark theme by default, React + Framer Motion only as islands, and Playwright covering the homepage and `/uses`. Content lives in `src/data/content.ts` — no CMS, no paid APIs, no premium libraries.
 
 **Live site:** [https://portfolio-eight-neon-c4csi6obc0.vercel.app/](https://portfolio-eight-neon-c4csi6obc0.vercel.app/)
 
@@ -32,7 +32,7 @@ The site is at **http://localhost:4321**.
 | `npm run dev` | Start the Astro dev server |
 | `npm run build` | Generate the static site into `dist/` |
 | `npm run preview` | Serve `dist/` locally |
-| `npm test` | Run Playwright (`tests/homepage.spec.ts`) |
+| `npm test` | Run Playwright (`tests/homepage.spec.ts`, `tests/uses.spec.ts`) |
 | `npm run test:ui` | Open the Playwright UI runner |
 | `npm run test:headed` | Run tests in a visible browser |
 
@@ -57,7 +57,7 @@ public/
 
 Hero, header, and footer ship as static Astro. Certifications, projects, and tech stack hydrate with `client:visible` so motion runs on scroll without bloating the first paint.
 
-The `/uses` page lists the workstation, editor, and quality stack. GitHub Actions runs Playwright on every push; the `#lab` section badges that workflow and can replay the sanity suite in the browser.
+The `/uses` page lists the workstation, editor, and quality stack. GitHub Actions runs Playwright on every push. The `#lab` section shows that badge and can replay the sanity suite in the browser.
 
 ## Deploy for free
 

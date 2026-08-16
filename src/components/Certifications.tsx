@@ -11,7 +11,7 @@ export default function Certifications() {
       <div className="mx-auto max-w-6xl px-5 py-24">
         <SectionHeader
           kicker="Credentials"
-          title="Advanced certifications that back the test strategy."
+          title="The credentials behind the strategy."
         />
 
         <div className="mt-12 grid gap-5">

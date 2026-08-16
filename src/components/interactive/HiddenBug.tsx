@@ -1,7 +1,7 @@
 import { motion, useReducedMotion, useSpring } from 'framer-motion';
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
 
-const MESSAGE = 'You found the bug! You must have a QA mindset too.';
+const MESSAGE = 'You found the bug. You might have a QA mindset too.';
 
 function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));

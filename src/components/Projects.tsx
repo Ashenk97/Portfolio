@@ -55,7 +55,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             </a>
           ) : (
             <p className="mt-6 font-mono text-xs uppercase tracking-[0.16em] text-mist/70">
-              Case study soon
+              Case study coming
             </p>
           )}
         </article>
@@ -70,7 +70,7 @@ export default function Projects() {
       <div className="mx-auto max-w-6xl px-5 py-24">
         <SectionHeader
           kicker="Selected work"
-          title="Defects prevented and time returned — not just features built."
+          title="Defects prevented. Time saved. Not just features shipped."
         />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (

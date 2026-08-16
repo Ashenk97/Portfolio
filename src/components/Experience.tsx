@@ -6,7 +6,7 @@ export default function Experience() {
   return (
     <section id="experience" className="border-t border-line/70">
       <div className="mx-auto max-w-6xl px-5 py-24">
-        <SectionHeader kicker="Work" title="Quality engineering across product teams." />
+        <SectionHeader kicker="Work" title="Quality work that ships with the product." />
 
         <ol className="mt-12 space-y-6">
           {experience.map((job, index) => (

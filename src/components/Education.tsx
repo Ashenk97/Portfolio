@@ -8,7 +8,7 @@ export default function Education() {
       <div className="mx-auto max-w-6xl px-5 py-24">
         <SectionHeader
           kicker="Studies"
-          title="Education — from the B.Sc to an MSc still in motion."
+          title="From the B.Sc to an MSc still in motion."
         />
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {education.map((item, index) => (

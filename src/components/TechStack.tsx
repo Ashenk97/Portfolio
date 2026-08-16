@@ -9,7 +9,7 @@ export default function TechStack() {
       <div className="mx-auto max-w-6xl px-5 py-24">
         <SectionHeader
           kicker="Under the hood"
-          title="Not just the tools — the way the suites are written."
+          title="How the suites are written — then the full toolkit."
         />
         <FadeIn className="mt-12">
           <CodeSnippets />
