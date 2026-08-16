@@ -12,8 +12,8 @@ test.describe('portfolio homepage', () => {
     await expect(page.locator('#hero')).toContainText(
       /test automation strategy and build quality systems/i,
     );
-    await expect(page.locator('#hero')).toContainText(/CTAL-TAE/i);
-    await expect(page.locator('#hero')).toContainText(/Test Automation Engineering/i);
+    await expect(page.locator('#hero')).toContainText(/Test strategy/i);
+    await expect(page.locator('#hero')).not.toContainText(/CTAL-TAE/i);
     await expect(page.getByRole('navigation', { name: 'Primary' })).toBeVisible();
   });
 

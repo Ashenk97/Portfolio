@@ -19,13 +19,6 @@ export const profile = {
   ],
 } as const;
 
-export const featuredCredential = {
-  acronym: 'CTAL-TAE',
-  issuer: 'ISTQB',
-  label: 'Advanced Level · Test Automation Engineering',
-  href: '/#certifications',
-} as const;
-
 export const github = {
   repo: 'Ashenk97/Portfolio',
   url: 'https://github.com/Ashenk97/Portfolio',
