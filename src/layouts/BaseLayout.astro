@@ -3,7 +3,6 @@ import '../styles/global.css';
 import { ClientRouter, fade } from 'astro:transitions';
 import { site } from '../data/content';
 import CustomCursor from '../components/interactive/CustomCursor';
-import HiddenBug from '../components/interactive/HiddenBug';
 
 interface Props {
   title?: string;
@@ -46,7 +45,6 @@ const canonical = Astro.site
       Skip to content
     </a>
     <CustomCursor client:idle />
-    <HiddenBug client:idle />
     <slot />
   </body>
 </html>
