@@ -1,14 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" rx="8" fill="#05070a"/>
-  <rect x="1" y="1" width="30" height="30" rx="7" stroke="#3ee0c5" stroke-opacity="0.5"/>
-  <text
-    x="16"
-    y="21"
-    text-anchor="middle"
-    fill="#3ee0c5"
-    font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-    font-size="11"
-    font-weight="600"
-    letter-spacing="0.08em"
-  >AK</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Ashen Kavinda">
+  <!-- Solid signal tile — high contrast in light and dark browser chrome -->
+  <rect width="64" height="64" rx="14" fill="#3ee0c5"/>
+  <!-- Brand crosshair (matches site cursor mark), thick enough to read at 16px -->
+  <circle cx="32" cy="32" r="18" fill="none" stroke="#04251f" stroke-width="3.5"/>
+  <rect x="29.25" y="16" width="5.5" height="32" rx="1.5" fill="#04251f"/>
+  <rect x="16" y="29.25" width="32" height="5.5" rx="1.5" fill="#04251f"/>
+  <circle cx="32" cy="32" r="4.5" fill="#04251f"/>
 </svg>
