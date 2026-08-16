@@ -19,13 +19,6 @@ export const profile = {
   ],
 } as const;
 
-export const featuredCredential = {
-  acronym: 'CTAL-TAE',
-  issuer: 'ISTQB',
-  label: 'Advanced Level · Test Automation Engineering',
-  href: '/#certifications',
-} as const;
-
 export const github = {
   repo: 'Ashenk97/Portfolio',
   url: 'https://github.com/Ashenk97/Portfolio',
@@ -475,31 +468,11 @@ export type UsesGroup = {
 
 export const usesPage = {
   title: `${profile.name} · Uses`,
-  description: `The workstation, editors, and quality stack ${profile.name} uses to design suites, read traces, and ship with confidence.`,
+  description: `The editor, terminal, and quality stack ${profile.name} uses to design suites, read traces, and ship with confidence.`,
   headline: 'The setup behind the suites.',
   intro:
-    'A look at the workstation, editor, and frameworks I use to design coverage, read traces, and ship with confidence.',
+    'A look at the editor, terminal, and frameworks I use to design coverage, read traces, and ship with confidence.',
   groups: [
-    {
-      id: 'workstation',
-      title: 'Workstation',
-      blurb: 'Windows daily driver. Spec on one side, logs on the other.',
-      items: [
-        {
-          name: 'Windows workstation',
-          detail: 'Where suites, traces, and reviews happen. Bash in Windows Terminal.',
-        },
-        {
-          name: 'Extended desktop',
-          detail:
-            'Product and spec on one screen. Playwright traces, CI logs, and the failing assertion on the other.',
-        },
-        {
-          name: 'Kurunegala, Sri Lanka',
-          detail: 'Home base. Quiet enough to hear a flake when it shows up.',
-        },
-      ],
-    },
     {
       id: 'editor',
       title: 'Editor & terminal',
@@ -512,18 +485,6 @@ export const usesPage = {
         {
           name: 'Windows Terminal + bash',
           detail: 'Playwright, git, and npm — without leaving the keyboard.',
-        },
-        {
-          name: 'JetBrains Mono',
-          detail: 'The same monospace on this site and in the terminal. Traces stay readable.',
-        },
-        {
-          name: 'Void / signal dark theme',
-          detail: 'Ink backgrounds, signal-green passes, ember for attention. Same look as the lab.',
-        },
-        {
-          name: 'IntelliJ IDEA',
-          detail: 'Still home for Java, REST Assured, TestNG, and Maven.',
         },
       ],
     },
