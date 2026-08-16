@@ -30,7 +30,22 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             </span>
           </div>
           <h3 className="mt-5 text-2xl font-bold tracking-tight">{project.name}</h3>
-          <p className="mt-3 flex-1 leading-relaxed text-mist">{project.description}</p>
+          <p className="mt-3 leading-relaxed text-mist">{project.description}</p>
+          <dl className="mt-6 grid grid-cols-3 gap-2">
+            {project.metrics.map((metric) => (
+              <div
+                key={metric.label}
+                className="rounded-xl border border-line/80 bg-void/50 px-2 py-3 text-center"
+              >
+                <dt className="font-mono text-[10px] uppercase tracking-[0.12em] text-mist">
+                  {metric.label}
+                </dt>
+                <dd className="mt-1 text-sm font-semibold tracking-tight text-signal">
+                  {metric.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
           {project.href ? (
             <a
               href={project.href}
@@ -55,7 +70,7 @@ export default function Projects() {
       <div className="mx-auto max-w-6xl px-5 py-24">
         <SectionHeader
           kicker="Selected work"
-          title="Projects built with the same discipline as the test suite."
+          title="Defects prevented and time returned — not just features built."
         />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (

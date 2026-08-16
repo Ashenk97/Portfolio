@@ -1,125 +1,200 @@
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import SectionHeader from './interactive/SectionHeader';
-import { qaInAction } from '../data/content';
+import { github, qaInAction } from '../data/content';
 
-const CODE_LINES = [
-  "import { test, expect } from '@playwright/test';",
-  '',
-  "test('login flow', async ({ page }) => {",
-  "  await page.goto('/login');",
-  "  await page.getByLabel('Email').fill('qa@genki.dev');",
-  "  await page.getByRole('button', { name: 'Sign in' }).click();",
-  "  await expect(page.getByRole('heading', { name: 'Dashboard' })).toBeVisible();",
-  '});',
-];
+type RunStatus = 'idle' | 'running' | 'passed';
+type CaseStatus = 'queued' | 'running' | 'passed';
 
-const TERMINAL_FRAMES = [
-  ['$ npx playwright test homepage.spec.ts', 'Running 1 test using 1 worker'],
-  ['$ npx playwright test homepage.spec.ts', 'Running 1 test using 1 worker', '  ✓ login flow (1.2s)'],
-  [
-    '$ npx playwright test homepage.spec.ts',
-    'Running 1 test using 1 worker',
-    '  ✓ login flow (1.2s)',
-    '  1 passed (2.0s)',
-  ],
-];
+const badgeSrc = `https://github.com/${github.repo}/actions/workflows/${github.workflowFile}/badge.svg`;
+const actionsHref = `https://github.com/${github.repo}/actions/workflows/${github.workflowFile}`;
 
-function AnimatedRun() {
+function useSanityRun() {
   const reduceMotion = useReducedMotion();
-  const [step, setStep] = useState(0);
-  const [signedIn, setSignedIn] = useState(false);
+  const [status, setStatus] = useState<RunStatus>('idle');
+  const [visibleLines, setVisibleLines] = useState<string[]>([]);
+  const [caseStatus, setCaseStatus] = useState<CaseStatus[]>(
+    () => qaInAction.tests.map(() => 'queued'),
+  );
 
-  useEffect(() => {
+  const script = useMemo(() => {
+    const lines: { line: string; caseIndex?: number }[] = [
+      { line: `$ ${qaInAction.command}` },
+      { line: '' },
+      { line: `Running ${qaInAction.tests.length} tests using 1 worker` },
+      { line: '' },
+    ];
+
+    qaInAction.tests.forEach((item, index) => {
+      lines.push({
+        line: `  ✓  ${index + 1} [chromium] › ${item.file} › ${item.name} (${item.duration})`,
+        caseIndex: index,
+      });
+    });
+
+    lines.push({ line: '' });
+    lines.push({ line: `  ${qaInAction.tests.length} passed (6.2s)` });
+    return lines;
+  }, []);
+
+  const timers = useRef<number[]>([]);
+
+  function clearTimers() {
+    timers.current.forEach((timer) => window.clearTimeout(timer));
+    timers.current = [];
+  }
+
+  useEffect(() => () => clearTimers(), []);
+
+  function reset() {
+    clearTimers();
+    setStatus('idle');
+    setVisibleLines([]);
+    setCaseStatus(qaInAction.tests.map(() => 'queued'));
+  }
+
+  function run() {
+    if (status === 'running') return;
+
     if (reduceMotion) {
-      setSignedIn(true);
+      setVisibleLines(script.map((entry) => entry.line));
+      setCaseStatus(qaInAction.tests.map(() => 'passed'));
+      setStatus('passed');
       return;
     }
-    const timer = window.setInterval(() => {
-      setStep((current) => {
-        const next = (current + 1) % 8;
-        setSignedIn(next >= 4);
-        return next;
-      });
-    }, 900);
-    return () => window.clearInterval(timer);
-  }, [reduceMotion]);
 
-  const cursorX = signedIn ? 58 : 70;
-  const cursorY = signedIn ? 42 : 58;
-  const logs = TERMINAL_FRAMES[Math.min(Math.floor(step / 3), TERMINAL_FRAMES.length - 1)];
+    clearTimers();
+    setStatus('running');
+    setVisibleLines([]);
+    setCaseStatus(qaInAction.tests.map(() => 'queued'));
 
+    script.forEach((entry, index) => {
+      const timer = window.setTimeout(() => {
+        setVisibleLines((current) => [...current, entry.line]);
+        if (entry.caseIndex !== undefined) {
+          setCaseStatus((current) =>
+            current.map((value, caseIndex) => {
+              if (caseIndex === entry.caseIndex) return 'passed';
+              if (caseIndex === entry.caseIndex + 1 && value === 'queued') return 'running';
+              return value;
+            }),
+          );
+        } else if (index === 2) {
+          setCaseStatus((current) =>
+            current.map((value, caseIndex) => (caseIndex === 0 ? 'running' : value)),
+          );
+        }
+        if (index === script.length - 1) setStatus('passed');
+      }, 280 + index * 320);
+      timers.current.push(timer);
+    });
+  }
+
+  return { status, visibleLines, caseStatus, run, reset };
+}
+
+function CaseList({ caseStatus }: { caseStatus: CaseStatus[] }) {
   return (
-    <div className="grid gap-0 lg:grid-cols-[1.1fr_0.9fr]">
-      <pre className="overflow-x-auto border-b border-line bg-void p-4 font-mono text-[11px] leading-6 text-mist lg:border-b-0 lg:border-r">
-        {CODE_LINES.map((line, index) => (
-          <div key={index} className={index === Math.min(step + 2, CODE_LINES.length - 1) ? 'text-signal' : ''}>
-            <span className="me-3 text-line">{String(index + 1).padStart(2, '0')}</span>
-            {line || ' '}
-          </div>
-        ))}
-      </pre>
-      <div className="relative min-h-[220px] bg-ink p-5">
-        <div className="rounded-lg border border-line bg-panel p-4">
-          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-mist">app.local</p>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={signedIn ? 'dash' : 'login'}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.25 }}
-              className="mt-4"
+    <ol className="space-y-3">
+      {qaInAction.tests.map((item, index) => {
+        const state = caseStatus[index];
+        return (
+          <li key={item.id} className="flex items-start gap-3">
+            <span
+              className={`mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full border font-mono text-[10px] ${
+                state === 'passed'
+                  ? 'border-signal bg-signal text-signal-fg'
+                  : state === 'running'
+                    ? 'border-ember text-ember'
+                    : 'border-line text-mist'
+              }`}
             >
-              {signedIn ? (
-                <>
-                  <h3 className="text-lg font-bold">Dashboard</h3>
-                  <p className="mt-1 text-sm text-mist">Coverage 94% · 1 passed</p>
-                </>
-              ) : (
-                <>
-                  <label className="block text-xs text-mist">Email</label>
-                  <div className="mt-1 rounded-md border border-line bg-void px-3 py-2 font-mono text-xs">
-                    qa@genki.dev
-                  </div>
-                  <div className="mt-3 inline-flex rounded-md bg-signal px-3 py-1.5 text-xs font-semibold text-signal-fg">
-                    Sign in
-                  </div>
-                </>
-              )}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-        <motion.span
-          aria-hidden
-          className="pointer-events-none absolute h-4 w-4 rounded-full border-2 border-ember bg-ember/30"
-          animate={{ left: `${cursorX}%`, top: `${cursorY}%` }}
-          transition={{ type: 'spring', stiffness: 140, damping: 18 }}
-        />
-      </div>
-    </div>
+              {state === 'passed' ? '✓' : index + 1}
+            </span>
+            <div>
+              <p className={state === 'passed' ? 'text-paper' : 'text-mist'}>{item.name}</p>
+              <p className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.14em] text-mist/70">
+                {item.file}
+                {state === 'passed' ? ` · ${item.duration}` : state === 'running' ? ' · running' : ' · queued'}
+              </p>
+            </div>
+          </li>
+        );
+      })}
+    </ol>
   );
 }
 
 export default function QaInAction() {
+  const { status, visibleLines, caseStatus, run, reset } = useSanityRun();
+  const [ready, setReady] = useState(false);
+  const passedCount = caseStatus.filter((value) => value === 'passed').length;
   const hasMedia = Boolean(qaInAction.mediaSrc);
 
+  useEffect(() => {
+    setReady(true);
+  }, []);
+
   return (
-    <section id="lab" className="border-t border-line/70">
+    <section
+      id="lab"
+      data-lab-ready={ready ? 'true' : 'false'}
+      className="border-t border-line/70"
+    >
       <div className="mx-auto max-w-6xl px-5 py-24">
         <SectionHeader
-          kicker="QA in action"
-          title="Watch the suite drive the browser, then print a green run."
+          kicker="Testing lab"
+          title="This site is under test — run the sanity suite from here."
         />
-        <div className="mt-12 overflow-hidden rounded-2xl border border-line bg-panel shadow-[0_0_0_1px_rgb(62_224_197_/_0.08)]">
-          <div className="flex items-center gap-2 border-b border-line px-4 py-3">
+
+        <div className="mt-8 flex flex-wrap items-center gap-4">
+          <a
+            href={actionsHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center overflow-hidden rounded-md border border-line bg-ink"
+          >
+            <img src={badgeSrc} alt="Playwright GitHub Actions status" className="h-5" height={20} />
+          </a>
+          <p className="font-mono text-[11px] text-mist">
+            Chromium against this portfolio on every push to {github.repo}.
+          </p>
+        </div>
+
+        <div className="mt-8 overflow-hidden rounded-2xl border border-line bg-panel shadow-[0_0_0_1px_rgb(62_224_197_/_0.08)]">
+          <div className="flex flex-wrap items-center gap-3 border-b border-line px-4 py-3">
             <span className="h-2.5 w-2.5 rounded-full bg-ember/80" />
             <span className="h-2.5 w-2.5 rounded-full bg-signal/50" />
             <span className="h-2.5 w-2.5 rounded-full bg-mist/40" />
-            <p className="ms-3 font-mono text-[11px] text-mist">
+            <p className="ms-1 font-mono text-[11px] text-mist">
               Playwright · Chromium · {qaInAction.fileName}
             </p>
+            <div className="ms-auto flex flex-wrap items-center gap-3">
+              <p className="font-mono text-[11px] text-mist" data-testid="lab-score">
+                {passedCount}/{qaInAction.tests.length} passed
+              </p>
+              {status === 'passed' ? (
+                <button
+                  type="button"
+                  onClick={reset}
+                  className="rounded-full border border-line px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-mist transition hover:border-signal/50 hover:text-signal"
+                >
+                  Reset
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  data-testid="run-sanity-check"
+                  onClick={run}
+                  disabled={status === 'running'}
+                  className="rounded-full bg-signal px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-signal-fg transition hover:brightness-110 disabled:cursor-wait disabled:opacity-70"
+                >
+                  {status === 'running' ? 'Running…' : 'Run Sanity Check'}
+                </button>
+              )}
+            </div>
           </div>
+
           {hasMedia ? (
             <div className="bg-void">
               {qaInAction.mediaSrc.endsWith('.gif') ? (
@@ -141,42 +216,57 @@ export default function QaInAction() {
               )}
             </div>
           ) : (
-            <AnimatedRun />
-          )}
-          {!hasMedia ? (
-            <div className="border-t border-line bg-void px-4 py-3 font-mono text-[11px] leading-6 text-mist">
-              <AnimatedTerminal />
+            <div className="grid gap-0 lg:grid-cols-[1.15fr_0.85fr]">
+              <pre
+                aria-live="polite"
+                className="min-h-[280px] overflow-x-auto bg-void p-4 font-mono text-[11px] leading-6 text-mist lg:border-r lg:border-line"
+              >
+                {visibleLines.length === 0 ? (
+                  <span className="text-mist/60">
+                    $ Ready. Click Run Sanity Check to execute the suite that guards this site.
+                    <motion.span
+                      aria-hidden
+                      className="ms-1 inline-block h-3 w-1.5 translate-y-0.5 bg-signal"
+                      animate={{ opacity: [1, 0, 1] }}
+                      transition={{ repeat: Infinity, duration: 1.1 }}
+                    />
+                  </span>
+                ) : (
+                  visibleLines.map((line, index) => (
+                    <div
+                      key={`${line}-${index}`}
+                      className={
+                        line.includes('passed') || line.includes('✓') ? 'text-signal' : ''
+                      }
+                    >
+                      {line || ' '}
+                    </div>
+                  ))
+                )}
+              </pre>
+              <div className="bg-ink p-5">
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-mist">
+                  Live reporter
+                </p>
+                <div className="mt-4">
+                  <CaseList caseStatus={caseStatus} />
+                </div>
+                <AnimatePresence>
+                  {status === 'passed' ? (
+                    <motion.p
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="mt-6 rounded-lg border border-signal/40 bg-signal/10 px-3 py-2 font-mono text-xs text-signal"
+                    >
+                      3 passed (6.2s) · sanity gate green
+                    </motion.p>
+                  ) : null}
+                </AnimatePresence>
+              </div>
             </div>
-          ) : null}
+          )}
         </div>
-        <p className="mt-4 font-mono text-[11px] text-mist/70">
-          Drop a looping recording at <code>public/media/playwright-run.mp4</code> and set{' '}
-          <code>qaInAction.mediaSrc</code> to swap this mockup.
-        </p>
       </div>
     </section>
-  );
-}
-
-function AnimatedTerminal() {
-  const reduceMotion = useReducedMotion();
-  const [frame, setFrame] = useState(reduceMotion ? TERMINAL_FRAMES.length - 1 : 0);
-
-  useEffect(() => {
-    if (reduceMotion) return;
-    const timer = window.setInterval(() => {
-      setFrame((current) => (current + 1) % TERMINAL_FRAMES.length);
-    }, 1800);
-    return () => window.clearInterval(timer);
-  }, [reduceMotion]);
-
-  return (
-    <div>
-      {TERMINAL_FRAMES[frame].map((line) => (
-        <p key={line} className={line.includes('passed') || line.includes('✓') ? 'text-signal' : ''}>
-          {line}
-        </p>
-      ))}
-    </div>
   );
 }

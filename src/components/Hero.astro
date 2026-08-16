@@ -1,5 +1,5 @@
 ---
-import { profile } from '../data/content';
+import { featuredCredential, profile } from '../data/content';
 ---
 
 <section id="hero" class="relative overflow-hidden">
@@ -21,7 +21,18 @@ import { profile } from '../data/content';
         {profile.about}
       </p>
     </div>
-    <ul class="flex flex-wrap gap-2">
+    <ul class="flex flex-wrap items-center gap-2">
+      <li>
+        <a
+          href={featuredCredential.href}
+          class="inline-flex items-center gap-2 rounded-full border border-signal/50 bg-signal/10 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-signal shadow-[0_0_0_1px_rgb(62_224_197_/_0.12)] transition hover:bg-signal/20"
+        >
+          <span class="rounded-full bg-signal px-1.5 py-0.5 text-[9px] font-semibold tracking-[0.12em] text-signal-fg">
+            {featuredCredential.acronym}
+          </span>
+          <span>{featuredCredential.label}</span>
+        </a>
+      </li>
       {
         profile.personalSkills.map((skill) => (
           <li class="rounded-full border border-line bg-panel px-3 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-mist">
