@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react';
 import { techStack, type TechItem } from '../data/content';
-import CodeSnippets from './CodeSnippets';
 import FadeIn from './FadeIn';
 import SectionHeader from './interactive/SectionHeader';
 
@@ -199,13 +198,10 @@ export default function TechStack() {
       <div className="mx-auto max-w-6xl px-5 py-24">
         <SectionHeader
           kicker="Under the hood"
-          title="How the suites are written — then the full toolkit."
+          title="The full toolkit behind the suites."
         />
-        <FadeIn className="mt-12">
-          <CodeSnippets />
-        </FadeIn>
 
-        <FadeIn className="mt-16">
+        <FadeIn className="mt-12">
           <Toolkit />
         </FadeIn>
       </div>

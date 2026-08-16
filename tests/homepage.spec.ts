@@ -34,8 +34,9 @@ test.describe('portfolio homepage', () => {
     await expect(page.locator('#certifications')).toContainText(/Pearson\+ Hackathon Winner/i);
     await expect(page.locator('#certifications')).toContainText(/Inclusive Learning Experience Explorer/i);
 
-    await expect(page.locator('#education')).toContainText(/Master of Science in Information Technology/i);
-    await expect(page.locator('#education')).toContainText(/In progress/i);
+    await expect(page.locator('#education')).toContainText(/B\.Sc \(Hons\) in Information Technology/i);
+    await expect(page.locator('#education')).not.toContainText(/Master of Science/i);
+    await expect(page.locator('#education')).not.toContainText(/In progress/i);
 
     const genki = page.locator('[data-project="genki"]');
     await expect(genki).toBeVisible();
@@ -53,10 +54,11 @@ test.describe('portfolio homepage', () => {
     await expect(page.locator('#roadmap')).toContainText(/Advanced Level Test Automation Engineering/i);
     await expect(page.locator('#roadmap')).toContainText(/ISTQB AI Testing/i);
     await expect(page.locator('#roadmap')).toContainText(/Master of Science in IT/i);
-    await expect(page.locator('#roadmap')).toContainText(/in progress/i);
+    await expect(page.locator('#roadmap')).toContainText(/Planning to do/i);
+    await expect(page.locator('#roadmap')).not.toContainText(/In progress/i);
 
-    await expect(page.locator('#stack')).toContainText(/Playwright fixture/i);
-    await expect(page.locator('#stack')).toContainText(/fixtures\/portfolio\.ts/i);
+    await expect(page.locator('#stack')).toContainText(/The toolkit/i);
+    await expect(page.locator('#stack')).not.toContainText(/Playwright fixture/i);
     await expect(page.locator('[data-tech="Playwright"]')).toBeVisible();
     await expect(page.locator('[data-tech="TypeScript"]')).toBeVisible();
     await expect(page.locator('[data-tech="Cursor"]')).toBeVisible();

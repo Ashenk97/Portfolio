@@ -30,20 +30,5 @@ import { profile } from '../data/content';
         ))
       }
     </ul>
-    <div class="flex flex-wrap items-center gap-6">
-      <a
-        href="/#experience"
-        class="rounded-full bg-signal px-6 py-3 text-sm font-semibold text-signal-fg transition hover:brightness-110"
-      >
-        View experience
-      </a>
-      <a
-        href={`mailto:${profile.email}`}
-        class="font-mono text-xs uppercase tracking-[0.18em] text-mist underline-offset-4 hover:text-paper hover:underline"
-      >
-        {profile.email}
-      </a>
-      <span class="font-mono text-xs text-mist/80">{profile.location}</span>
-    </div>
   </div>
 </section>

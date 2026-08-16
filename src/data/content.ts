@@ -186,13 +186,6 @@ export type Education = {
 export const education: Education[] = [
   {
     school: 'SLIIT',
-    credential: 'Master of Science in Information Technology',
-    years: '2026 — Present',
-    detail: 'In progress · software engineering and quality leadership.',
-    current: true,
-  },
-  {
-    school: 'SLIIT',
     credential:
       'B.Sc (Hons) in Information Technology, specializing in Software Engineering',
     years: '2018 — 2022',
@@ -296,101 +289,6 @@ export const techStack: TechItem[] = [
   { name: 'Flutter', category: 'Mobile' },
 ];
 
-export type CodeSnippet = {
-  id: string;
-  label: string;
-  fileName: string;
-  language: 'ts' | 'yml';
-  caption: string;
-  code: string;
-};
-
-export const codeSnippets: CodeSnippet[] = [
-  {
-    id: 'fixture',
-    label: 'Playwright fixture',
-    fileName: 'fixtures/portfolio.ts',
-    language: 'ts',
-    caption:
-      'A page object as a fixture — sanity checks stay readable as the suite grows.',
-    code: `import { test as base, expect, type Page } from '@playwright/test';
-
-class Portfolio {
-  constructor(private readonly page: Page) {}
-
-  async goto() {
-    await this.page.goto('/');
-    await expect(this.page.getByTestId('role-kicker')).toBeVisible();
-  }
-
-  async expectGreenLab() {
-    await expect(this.page.locator('#lab')).toContainText(/3 passed/i);
-  }
-}
-
-export const test = base.extend<{ portfolio: Portfolio }>({
-  portfolio: async ({ page }, use) => {
-    const portfolio = new Portfolio(page);
-    await portfolio.goto();
-    await use(portfolio);
-  },
-});`,
-  },
-  {
-    id: 'mock',
-    label: 'API mock',
-    fileName: 'mocks/release-gate.ts',
-    language: 'ts',
-    caption:
-      'Stub the release-gate API so UI tests stay steady when the backend is noisy.',
-    code: `import { test, expect } from '@playwright/test';
-
-test('release board reflects quality gates', async ({ page }) => {
-  await page.route('**/api/releases/current', async (route) => {
-    await route.fulfill({
-      status: 200,
-      contentType: 'application/json',
-      body: JSON.stringify({
-        status: 'ready',
-        gates: { e2e: 'passed', a11y: 'passed', perf: 'watch' },
-      }),
-    });
-  });
-
-  await page.goto('/releases');
-  await expect(page.getByRole('status')).toHaveText(/ready/i);
-  await expect(page.getByText('e2e')).toHaveAttribute('data-gate', 'passed');
-});`,
-  },
-  {
-    id: 'pipeline',
-    label: 'CI pipeline',
-    fileName: '.github/workflows/playwright.yml',
-    language: 'yml',
-    caption:
-      'The workflow behind the lab badge. Chromium against this site on every push.',
-    code: `name: Playwright
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: .node-version
-          cache: npm
-      - run: npm ci
-      - run: npx playwright install --with-deps chromium
-      - run: npm test`,
-  },
-];
-
 export const nav = [
   { href: '/#experience', label: 'Experience' },
   { href: '/#lab', label: 'Lab' },
@@ -438,19 +336,19 @@ export const roadmap = [
   },
   {
     id: 'msc-it',
-    status: 'in-progress' as const,
+    status: 'planned' as const,
     title: 'Master of Science in IT',
-    meta: 'SLIIT · in progress',
+    meta: 'SLIIT · planning to do',
     detail:
       'Postgraduate study at SLIIT, building on the B.Sc (Hons) in IT with deeper software engineering and quality practice.',
   },
   {
     id: 'ai-testing',
-    status: 'in-progress' as const,
+    status: 'planned' as const,
     title: 'ISTQB AI Testing',
-    meta: 'Exam prep in progress',
+    meta: 'Exam prep · planning to do',
     detail:
-      'Studying the AI Testing syllabus: how to test ML-assisted quality, handle non-deterministic risk, and design strategy for intelligent products.',
+      'Next up on the syllabus: how to test ML-assisted quality, handle non-deterministic risk, and design strategy for intelligent products.',
   },
 ];
 
