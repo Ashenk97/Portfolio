@@ -9,7 +9,9 @@ test.describe('uses page', () => {
     await expect(page.locator('[data-uses="Cursor"]')).toBeVisible();
     await expect(page.locator('[data-uses="Playwright + TypeScript"]')).toBeVisible();
     await expect(page.locator('[data-uses="Windows Terminal + bash"]')).toBeVisible();
-    await expect(page.locator('#uses')).toContainText(/JetBrains Mono/i);
+    await expect(page.locator('#uses')).not.toContainText(/Workstation/i);
+    await expect(page.locator('#uses')).not.toContainText(/JetBrains Mono/i);
+    await expect(page.locator('#uses')).not.toContainText(/IntelliJ IDEA/i);
   });
 
   test('primary navigation reaches uses from the homepage', async ({ page }) => {
