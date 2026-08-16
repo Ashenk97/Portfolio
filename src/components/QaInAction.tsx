@@ -144,7 +144,7 @@ export default function QaInAction() {
       <div className="mx-auto max-w-6xl px-5 py-24">
         <SectionHeader
           kicker="Testing lab"
-          title="This site is under test — run the sanity suite from here."
+          title="This site is under test. Run the suite yourself."
         />
 
         <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -157,7 +157,7 @@ export default function QaInAction() {
             <img src={badgeSrc} alt="Playwright GitHub Actions status" className="h-5" height={20} />
           </a>
           <p className="font-mono text-[11px] text-mist">
-            Chromium against this portfolio on every push to {github.repo}.
+            Chromium hits this site on every push to {github.repo}.
           </p>
         </div>
 
@@ -223,7 +223,7 @@ export default function QaInAction() {
               >
                 {visibleLines.length === 0 ? (
                   <span className="text-mist/60">
-                    $ Ready. Click Run Sanity Check to execute the suite that guards this site.
+                    $ Ready. Hit Run Sanity Check to watch the suite that guards this site.
                     <motion.span
                       aria-hidden
                       className="ms-1 inline-block h-3 w-1.5 translate-y-0.5 bg-signal"
@@ -258,7 +258,7 @@ export default function QaInAction() {
                       animate={{ opacity: 1, y: 0 }}
                       className="mt-6 rounded-lg border border-signal/40 bg-signal/10 px-3 py-2 font-mono text-xs text-signal"
                     >
-                      3 passed (6.2s) · sanity gate green
+                      3 passed (6.2s) · the gate is green
                     </motion.p>
                   ) : null}
                 </AnimatePresence>
