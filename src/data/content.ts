@@ -42,6 +42,46 @@ export type Certification = {
   featured?: boolean;
 };
 
+export type CredlyBadge = {
+  id: string;
+  name: string;
+  issuer: string;
+  date: string;
+  image: string;
+  href: string;
+};
+
+export const credly = {
+  badges: [
+    {
+      id: '32ecd447-8ccd-4539-957c-e2a8407b4395',
+      name: 'Lean Awareness',
+      issuer: 'Pearson',
+      date: 'April 2024',
+      image:
+        'https://images.credly.com/images/a7b89a4b-1bc7-4a28-bcee-153c62e4552f/linkedin_thumb_blob',
+      href: 'https://www.credly.com/badges/32ecd447-8ccd-4539-957c-e2a8407b4395/public_url',
+    },
+    {
+      id: 'aca2408d-f138-4304-a927-62839457d35d',
+      name: 'Pearson+ Hackathon Winner',
+      issuer: 'Pearson',
+      date: 'March 2023',
+      image: 'https://images.credly.com/images/59a5b679-a617-4c4e-a25a-82fdd0a0a476/image.png',
+      href: 'https://www.credly.com/badges/aca2408d-f138-4304-a927-62839457d35d/public_url',
+    },
+    {
+      id: '3fa42e84-52bb-4195-a954-354e33f52177',
+      name: 'Inclusive Learning Experience Explorer',
+      issuer: 'Pearson',
+      date: 'December 2022',
+      image:
+        'https://images.credly.com/images/5d80d8fc-df22-4bd7-9e9a-5518caa543c2/linkedin_thumb_image.png',
+      href: 'https://www.credly.com/badges/3fa42e84-52bb-4195-a954-354e33f52177/public_url',
+    },
+  ] satisfies CredlyBadge[],
+} as const;
+
 export const certifications: Certification[] = [
   {
     name: 'ISTQB Certified Tester',

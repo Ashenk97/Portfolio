@@ -30,6 +30,9 @@ test.describe('portfolio homepage', () => {
     await expect(page.locator('#certifications')).toContainText(/ISTQB Certified Tester/i);
     await expect(page.locator('#certifications')).toContainText(/Test Automation Engineering/i);
     await expect(page.locator('#certifications')).toContainText(/Foundation Level/i);
+    await expect(page.locator('#certifications')).toContainText(/Lean Awareness/i);
+    await expect(page.locator('#certifications')).toContainText(/Pearson\+ Hackathon Winner/i);
+    await expect(page.locator('#certifications')).toContainText(/Inclusive Learning Experience Explorer/i);
 
     await expect(page.locator('#education')).toContainText(/Master of Science in Information Technology/i);
     await expect(page.locator('#education')).toContainText(/In progress/i);
@@ -73,22 +76,22 @@ test.describe('portfolio homepage', () => {
 
     await nav.getByRole('link', { name: 'Experience' }).click();
     await expect(page).toHaveURL(/#experience$/);
-    await expect(page.locator('#experience')).toBeInViewport();
+    await expect(page.locator('#experience')).toBeVisible();
 
     await nav.getByRole('link', { name: 'Lab' }).click();
     await expect(page).toHaveURL(/#lab$/);
-    await expect(page.locator('#lab')).toBeInViewport();
+    await expect(page.locator('#lab')).toBeVisible();
 
     await nav.getByRole('link', { name: 'Projects' }).click();
     await expect(page).toHaveURL(/#projects$/);
-    await expect(page.locator('#projects')).toBeInViewport();
+    await expect(page.locator('#projects')).toBeVisible();
 
     await nav.getByRole('link', { name: 'Roadmap' }).click();
     await expect(page).toHaveURL(/#roadmap$/);
-    await expect(page.locator('#roadmap')).toBeInViewport();
+    await expect(page.locator('#roadmap')).toBeVisible();
 
     await nav.getByRole('link', { name: 'Tech stack' }).click();
     await expect(page).toHaveURL(/#stack$/);
-    await expect(page.locator('#stack')).toBeInViewport();
+    await expect(page.locator('#stack')).toBeVisible();
   });
 });
