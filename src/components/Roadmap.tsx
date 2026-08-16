@@ -13,7 +13,10 @@ export default function Roadmap() {
   return (
     <section id="roadmap" className="border-t border-line/70">
       <div className="mx-auto max-w-6xl px-5 py-24">
-        <SectionHeader kicker="Future roadmap" title="Credentials and study still on the board." />
+        <SectionHeader
+          kicker="Trajectory"
+          title="Current momentum toward cutting-edge QA leadership."
+        />
         <ol className="relative mt-14 space-y-8 before:absolute before:top-2 before:bottom-2 before:left-[11px] before:w-px before:bg-line sm:before:left-[15px]">
           {roadmap.map((node, index) => (
             <FadeIn key={node.id} delay={index * 0.08}>

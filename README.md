@@ -44,14 +44,20 @@ src/
   layouts/BaseLayout.astro
   components/              # Astro (zero-JS) + React islands
   pages/index.astro
+  pages/uses.astro         # /uses workstation + tooling
   styles/global.css        # Tailwind v4 + dark theme
 tests/
   homepage.spec.ts
+  uses.spec.ts
+.github/workflows/
+  playwright.yml           # Chromium against the portfolio on every push
 public/
   _headers                 # Cloudflare Pages security headers
 ```
 
 Hero, header, and footer ship as static Astro. Certifications, projects, and tech stack hydrate with `client:visible` so motion runs on scroll without bloating the first paint.
+
+The `/uses` page lists the workstation, editor, and quality stack. GitHub Actions runs Playwright on every push; the `#lab` section badges that workflow and can replay the sanity suite in the browser.
 
 ## Deploy for free
 

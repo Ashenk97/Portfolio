@@ -1,4 +1,5 @@
 import { techStack } from '../data/content';
+import CodeSnippets from './CodeSnippets';
 import FadeIn from './FadeIn';
 import SectionHeader from './interactive/SectionHeader';
 
@@ -6,8 +7,18 @@ export default function TechStack() {
   return (
     <section id="stack" className="border-t border-line/70">
       <div className="mx-auto max-w-6xl px-5 py-24">
-        <SectionHeader kicker="Tooling" title="The stack I use to keep quality measurable." />
-        <ul className="mt-12 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <SectionHeader
+          kicker="Under the hood"
+          title="Not just the tools — the way the suites are written."
+        />
+        <FadeIn className="mt-12">
+          <CodeSnippets />
+        </FadeIn>
+
+        <p className="mt-16 font-mono text-xs uppercase tracking-[0.28em] text-signal">
+          The toolkit
+        </p>
+        <ul className="mt-6 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {techStack.map((item, index) => (
             <FadeIn key={item.name} delay={index * 0.04}>
               <li

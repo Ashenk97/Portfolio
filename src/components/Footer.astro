@@ -1,5 +1,5 @@
 ---
-import { profile } from '../data/content';
+import { github, profile } from '../data/content';
 
 const year = new Date().getFullYear();
 ---
@@ -11,6 +11,9 @@ const year = new Date().getFullYear();
         © {year} {profile.name}. Built with Astro, Tailwind CSS, and Playwright.
       </p>
       <nav aria-label="Contact" class="flex flex-wrap gap-x-5 gap-y-2 font-mono text-xs">
+        <a href="/uses" class="text-mist hover:text-signal">
+          /uses
+        </a>
         <a
           href={`mailto:${profile.email}`}
           class="text-mist hover:text-signal"
@@ -27,6 +30,14 @@ const year = new Date().getFullYear();
           class="text-mist hover:text-signal"
         >
           LinkedIn
+        </a>
+        <a
+          href={github.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-mist hover:text-signal"
+        >
+          GitHub
         </a>
       </nav>
     </div>
