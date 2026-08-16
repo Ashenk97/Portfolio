@@ -4,9 +4,9 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 
-// Static output deploys to Cloudflare Pages or Vercel with zero paid services.
-// After the first free deploy, set `site` to your Pages/Vercel URL.
+// Static output hosted on Vercel Hobby: https://portfolio-eight-neon-c4csi6obc0.vercel.app/
 export default defineConfig({
+  site: 'https://portfolio-eight-neon-c4csi6obc0.vercel.app',
   output: 'static',
   integrations: [react()],
   vite: {

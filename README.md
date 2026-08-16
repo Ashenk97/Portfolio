@@ -2,6 +2,8 @@
 
 Static Astro portfolio for a Software Quality Assurance Engineer. Dark theme by default, React + Framer Motion only as islands, and Playwright covering the homepage. Content lives in `src/data/content.ts` — no CMS, no paid APIs, no premium libraries.
 
+**Live site:** [https://portfolio-eight-neon-c4csi6obc0.vercel.app/](https://portfolio-eight-neon-c4csi6obc0.vercel.app/)
+
 **Free-tier stack**
 
 | Layer | Tool | Cost |
@@ -10,7 +12,7 @@ Static Astro portfolio for a Software Quality Assurance Engineer. Dark theme by 
 | Styles | [Tailwind CSS](https://tailwindcss.com) | Free / OSS |
 | Islands | [React](https://react.dev) + [Framer Motion](https://www.framer.com/motion/) | Free / OSS |
 | Tests | [Playwright](https://playwright.dev) | Free / OSS |
-| Hosting | [Cloudflare Pages](https://pages.cloudflare.com) or [Vercel](https://vercel.com) | Free tier |
+| Hosting | [Vercel](https://vercel.com) Hobby (`*.vercel.app`) | Free tier |
 | Source | GitHub | Free |
 
 Edit your name, copy, GENKI details, and tech list in `src/data/content.ts`.
@@ -80,4 +82,4 @@ npx vercel --yes --prod
 
 Or import the GitHub repo in the Vercel dashboard. `vercel.json` already sets the framework, build command, and `dist` output. Stay on the Hobby plan.
 
-After the first deploy, set `site` in `astro.config.mjs` to your free `*.pages.dev` or `*.vercel.app` URL.
+Production URL is set as `site` in `astro.config.mjs`: [https://portfolio-eight-neon-c4csi6obc0.vercel.app/](https://portfolio-eight-neon-c4csi6obc0.vercel.app/).
