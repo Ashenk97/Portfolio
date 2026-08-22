@@ -7,14 +7,11 @@ import { nav, profile } from '../data/content';
   class="sticky top-0 z-40 border-b border-line/70 bg-void/80 backdrop-blur-md"
 >
   <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4">
-    <a href="/" class="group flex items-center gap-3 no-underline">
+    <a href="/" class="group no-underline" aria-label={profile.name}>
       <span
-        class="grid h-9 w-9 place-items-center rounded-lg border border-signal/40 bg-signal/10 font-mono text-xs font-medium tracking-wider text-signal"
+        class="grid h-12 w-12 place-items-center rounded-xl border border-signal/40 bg-signal/10 font-mono text-sm font-semibold tracking-wider text-signal"
       >
         AK
-      </span>
-      <span class="text-sm font-semibold tracking-wide text-paper">
-        {profile.name}
       </span>
     </a>
 
