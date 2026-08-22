@@ -64,7 +64,7 @@ const LAYERS = [
     id: 'design',
     label: 'Design',
     blurb: 'Layouts, marks, and UI mockups.',
-    tools: ['Photoshop', 'Illustrator', 'Figma', 'Adobe XD'],
+    tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Figma', 'Adobe XD'],
   },
 ] as const;
 

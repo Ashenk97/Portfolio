@@ -66,30 +66,34 @@ export default function Certifications() {
           <p className="mt-3 max-w-2xl text-mist">
             Official Pearson badges. Click one to verify it on Credly.
           </p>
-          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-8 grid items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {credly.badges.map((badge, index) => (
-              <FadeIn key={badge.id} delay={index * 0.08}>
-                <li>
+              <FadeIn key={badge.id} delay={index * 0.08} className="h-full">
+                <li className="h-full">
                   <a
                     href={badge.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     data-credly={badge.id}
-                    className="flex h-full flex-col items-center rounded-2xl border border-line bg-panel p-6 text-center transition hover:border-signal/40"
+                    className="flex h-full min-h-[22rem] flex-col items-center rounded-2xl border border-line bg-panel p-6 text-center transition hover:border-signal/40"
                   >
-                    <img
-                      src={badge.image}
-                      alt={`${badge.name} Credly badge`}
-                      width={160}
-                      height={160}
-                      className="h-36 w-36 object-contain"
-                    />
-                    <h3 className="mt-5 text-lg font-bold tracking-tight">{badge.name}</h3>
+                    <div className="flex h-36 w-36 shrink-0 items-center justify-center">
+                      <img
+                        src={badge.image}
+                        alt={`${badge.name} Credly badge`}
+                        width={160}
+                        height={160}
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
+                    <h3 className="mt-5 min-h-[3.5rem] text-lg font-bold tracking-tight">
+                      {badge.name}
+                    </h3>
                     <p className="mt-1 font-mono text-xs uppercase tracking-[0.16em] text-signal">
                       {badge.issuer}
                     </p>
                     <p className="mt-2 font-mono text-xs text-mist">{badge.date}</p>
-                    <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.16em] text-mist/80">
+                    <p className="mt-auto pt-4 font-mono text-[11px] uppercase tracking-[0.16em] text-mist/80">
                       Verify on Credly
                     </p>
                   </a>

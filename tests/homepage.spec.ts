@@ -89,8 +89,8 @@ test.describe('portfolio homepage', () => {
     await expect(page.locator('#stack')).toContainText(/Android/i);
     await expect(page.locator('#stack')).toContainText(/Firebase/i);
     await expect(page.locator('#stack')).toContainText(/Design/i);
-    await expect(page.locator('[data-tech="Photoshop"]')).toBeVisible();
-    await expect(page.locator('[data-tech="Illustrator"]')).toBeVisible();
+    await expect(page.locator('[data-tech="Adobe Photoshop"]')).toBeVisible();
+    await expect(page.locator('[data-tech="Adobe Illustrator"]')).toBeVisible();
     await expect(page.locator('[data-tech="Figma"]')).toBeVisible();
     await expect(page.locator('[data-tech="Adobe XD"]')).toBeVisible();
   });

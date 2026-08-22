@@ -98,6 +98,7 @@ export const certifications: Certification[] = [
     acronym: 'CTFL',
     issuer: 'SLSTB / ISTQB',
     date: 'March 2025',
+    featured: true,
     summary:
       'The ISTQB Certified Tester Foundation Level certification is the cornerstone of essential testing knowledge that can be applied to real-world scenarios. The syllabus provides a comprehensive understanding of the terminology and concepts used in the testing domain worldwide, making it relevant for all software delivery approaches and practices, including Waterfall, Agile, DevOps, and Continuous Delivery.',
   },
@@ -291,8 +292,8 @@ export const techStack: TechItem[] = [
   { name: 'Flutter', category: 'Mobile' },
   { name: 'Android', category: 'Mobile' },
   { name: 'Firebase', category: 'Mobile' },
-  { name: 'Photoshop', category: 'Design' },
-  { name: 'Illustrator', category: 'Design' },
+  { name: 'Adobe Photoshop', category: 'Design' },
+  { name: 'Adobe Illustrator', category: 'Design' },
   { name: 'Figma', category: 'Design' },
   { name: 'Adobe XD', category: 'Design' },
 ];
@@ -303,7 +304,6 @@ export const nav = [
   { href: '/#projects', label: 'Projects' },
   { href: '/#roadmap', label: 'Roadmap' },
   { href: '/#stack', label: 'Tech stack' },
-  { href: '/uses', label: 'Uses' },
 ] as const;
 
 export const qaInAction = {
@@ -359,93 +359,6 @@ export const roadmap = [
       'Next up on the syllabus: how to test ML-assisted quality, handle non-deterministic risk, and design strategy for intelligent products.',
   },
 ];
-
-export type UsesItem = {
-  name: string;
-  detail: string;
-};
-
-export type UsesGroup = {
-  id: string;
-  title: string;
-  blurb: string;
-  items: UsesItem[];
-};
-
-export const usesPage = {
-  title: `${profile.name} · Uses`,
-  description: `The editor, terminal, and quality stack ${profile.name} uses to design suites, read traces, and ship with confidence.`,
-  headline: 'The setup behind the suites.',
-  intro:
-    'A look at the editor, terminal, and frameworks I use to design coverage, read traces, and ship with confidence.',
-  groups: [
-    {
-      id: 'editor',
-      title: 'Editor & terminal',
-      blurb: 'Where I live between test runs.',
-      items: [
-        {
-          name: 'Cursor',
-          detail: 'Daily-driver IDE. Agents handle the boilerplate. I make the risk calls.',
-        },
-        {
-          name: 'Windows Terminal + bash',
-          detail: 'Playwright, git, and npm, without leaving the keyboard.',
-        },
-      ],
-    },
-    {
-      id: 'quality',
-      title: 'Quality stack',
-      blurb: 'Frameworks and runners that turn strategy into a green gate.',
-      items: [
-        {
-          name: 'Playwright + TypeScript',
-          detail: 'UI and API coverage, fixtures, and traces. This site runs under the same suite.',
-        },
-        {
-          name: 'Mocha + Chai',
-          detail: 'Clear runs and honest assertions when the team already knows the runner.',
-        },
-        {
-          name: 'REST Assured + Postman',
-          detail: 'Contract-heavy API work: automated suites plus exploratory collections.',
-        },
-        {
-          name: 'Apache JMeter',
-          detail: 'Load profiles that find the bottleneck before the user does.',
-        },
-        {
-          name: 'SonarQube + JaCoCo',
-          detail: 'Coverage and maintainability signals so the suite does not rot.',
-        },
-      ],
-    },
-    {
-      id: 'delivery',
-      title: 'Delivery & collaboration',
-      blurb: 'Where defects, branches, and conversations live.',
-      items: [
-        {
-          name: 'GitHub Actions',
-          detail: 'Chromium against this site on every push. The lab badge is the live signal.',
-        },
-        {
-          name: 'GitHub / GitLab / Bitbucket',
-          detail: 'Wherever the product repo lives, the quality gate follows.',
-        },
-        {
-          name: 'JIRA',
-          detail: 'Cases, defects, and the trail from risk to resolution.',
-        },
-        {
-          name: 'Astro + Tailwind CSS',
-          detail: 'This site. Static first. React only where motion earns the bytes.',
-        },
-      ],
-    },
-  ] satisfies UsesGroup[],
-} as const;
 
 export const site = {
   title: `${profile.name} · Senior QA`,
