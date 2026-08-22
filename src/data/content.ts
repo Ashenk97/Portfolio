@@ -4,24 +4,33 @@ export const profile = {
   headline:
     'I lead test automation strategy and build quality systems that keep releases reliable.',
   about:
-    'I focus on automation architecture, risk-based coverage, and software that holds up in production. I design Playwright and TypeScript suites, API and performance checks, and CI quality gates. Then I work with engineering and product to catch defects early and keep the suite maintainable as the product grows.',
+    'I focus on automation architecture, risk-based coverage, and software that holds up in production. I design Playwright and TypeScript suites, API and performance checks, and CI quality gates — and I still go deep on manual and exploratory testing when the risk calls for it. Then I work with engineering and product to catch defects early and keep the suite maintainable. Outside the pipeline I design: graphic work and GENKI, because quality and craft are the same instinct.',
   location: 'Kurunegala, Sri Lanka',
   phone: '+94 71 0948 240',
   phoneHref: 'tel:+94710948240',
   email: 'ashenk720@gmail.com',
   linkedin: 'https://www.linkedin.com/in/ashenk97/',
+  github: 'https://github.com/Ashenk97',
+  highlights: [
+    { value: '4+', label: 'Years in quality engineering' },
+    { value: 'Manual + auto', label: 'UI, API, and exploratory coverage' },
+    { value: 'Pearson+', label: 'Hackathon winner, 2023' },
+    { value: '2nd Upper', label: 'B.Sc (Hons) Software Engineering' },
+  ],
   personalSkills: [
     'Test strategy',
     'Automation architecture',
     'Risk-based testing',
+    'Manual & exploratory testing',
+    'Graphic design',
     'Stakeholder collaboration',
-    'Attention to detail',
   ],
 } as const;
 
 export const github = {
   repo: 'Ashenk97/Portfolio',
   url: 'https://github.com/Ashenk97/Portfolio',
+  profile: 'https://github.com/Ashenk97',
   workflowFile: 'playwright.yml',
 } as const;
 
@@ -105,6 +114,7 @@ export type Role = {
 
 export type Experience = {
   company: string;
+  context?: string;
   start: string;
   end: string;
   roles: Role[];
@@ -114,17 +124,18 @@ export type Experience = {
 export const experience: Experience[] = [
   {
     company: 'WealthOS',
-    start: 'Aug 2024',
+    context: 'Wealth-tech platform · Engineering',
+    start: 'Sep 2024',
     end: 'Present',
     roles: [
       {
-        title: 'Software Quality Assurance Engineer',
-        start: 'Aug 2024',
+        title: 'Quality Assurance Engineer',
+        start: 'Sep 2024',
         end: 'Present',
       },
     ],
     bullets: [
-      'Test UI and APIs so the product stays reliable and the experience stays smooth.',
+      'Test UI and APIs on a wealth-tech platform so the product stays reliable and the experience stays smooth.',
       'Build end-to-end coverage in Playwright and TypeScript, cutting the manual grind.',
       'Structure runs with Mocha and Chai so assertions stay clear and failures stay honest.',
       'Own test plans, cases, and scripts as coverage grows.',
@@ -133,6 +144,7 @@ export const experience: Experience[] = [
   },
   {
     company: 'Pearson Lanka',
+    context: 'User Engagement · Engineering',
     start: 'Mar 2022',
     end: 'Aug 2024',
     roles: [
@@ -142,13 +154,13 @@ export const experience: Experience[] = [
         end: 'Aug 2024',
       },
       {
-        title: 'Associate Software Quality Assurance Engineer',
+        title: 'Associate Software Quality Engineer',
         start: 'Mar 2022',
-        end: 'Mar 2023',
+        end: 'Apr 2023',
       },
     ],
     bullets: [
-      'Tested UI and APIs across projects, catching more defects in-cycle.',
+      'Tested UI and APIs with the User Engagement team, catching more defects in-cycle.',
       'Automated API checks with REST Assured, cutting regression time.',
       'Designed and ran cases, then tracked defects so fewer bugs leaked.',
       'Ran JMeter performance tests, found bottlenecks, and improved response time.',
@@ -189,6 +201,13 @@ export const education: Education[] = [
     credential:
       'B.Sc (Hons) in Information Technology, specializing in Software Engineering',
     years: '2018 — 2022',
+    detail: 'Second Class Upper Division',
+  },
+  {
+    school: 'Wijeya Graphics',
+    credential: 'Diploma in Multimedia',
+    years: '2017 — 2019',
+    detail: 'Graphic design and visual craft — the same eye I bring to UI quality and GENKI.',
   },
   {
     school: 'Wayamba Royal College',
@@ -219,7 +238,7 @@ export const projects: Project[] = [
     name: 'GENKI',
     tag: 'Brand / Commerce',
     description:
-      'Streetwear and anime-inspired apparel. The storefront is treated like a product under test — checkout, inventory, and visuals gated before a customer ever sees a break.',
+      'Streetwear and anime-inspired apparel I design and quality-gate. The storefront is treated like a product under test — checkout, inventory, and visuals checked before a customer ever sees a break.',
     status: 'featured',
     metrics: [
       { value: 'Pre-launch', label: 'Visual regressions gated' },
@@ -287,6 +306,8 @@ export const techStack: TechItem[] = [
   { name: 'JIRA', category: 'Test management' },
   { name: 'Dart', category: 'Language' },
   { name: 'Flutter', category: 'Mobile' },
+  { name: 'Android', category: 'Mobile' },
+  { name: 'Firebase', category: 'Mobile' },
 ];
 
 export const nav = [
@@ -441,5 +462,5 @@ export const usesPage = {
 
 export const site = {
   title: `${profile.name} · Senior QA`,
-  description: `${profile.name} is a ${profile.role} who leads test automation strategy, Playwright and TypeScript suites, and CI quality gates. Based in ${profile.location}.`,
+  description: `${profile.name} is a ${profile.role} who leads test automation strategy, Playwright and TypeScript suites, and CI quality gates. ISTQB certified. Based in ${profile.location}.`,
 } as const;

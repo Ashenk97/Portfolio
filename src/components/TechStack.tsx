@@ -58,7 +58,7 @@ const LAYERS = [
     id: 'ship',
     label: 'Ship',
     blurb: 'Build, version, and move the work.',
-    tools: ['Cursor', 'GitHub', 'GitLab', 'Bitbucket', 'Maven', 'Flutter'],
+    tools: ['Cursor', 'GitHub', 'GitLab', 'Bitbucket', 'Maven', 'Flutter', 'Android', 'Firebase'],
   },
 ] as const;
 

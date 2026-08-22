@@ -13,6 +13,11 @@ test.describe('portfolio homepage', () => {
       /test automation strategy and build quality systems/i,
     );
     await expect(page.locator('#hero')).toContainText(/Test strategy/i);
+    await expect(page.locator('#hero')).toContainText(/Graphic design/i);
+    await expect(page.locator('#hero')).toContainText(/manual and exploratory testing/i);
+    await expect(page.getByTestId('highlights')).toContainText(/Years in quality engineering/i);
+    await expect(page.getByTestId('highlights')).toContainText(/Hackathon winner/i);
+    await expect(page.getByTestId('highlights')).toContainText(/Second Class|2nd Upper/i);
     await expect(page.locator('#hero')).not.toContainText(/CTAL-TAE/i);
     await expect(page.getByRole('navigation', { name: 'Primary' })).toBeVisible();
   });
@@ -22,6 +27,9 @@ test.describe('portfolio homepage', () => {
 
     await expect(page.locator('#experience')).toContainText('WealthOS');
     await expect(page.locator('#experience')).toContainText('Pearson Lanka');
+    await expect(page.locator('#experience')).toContainText(/Sep 2024/i);
+    await expect(page.locator('#experience')).toContainText(/User Engagement/i);
+    await expect(page.locator('#experience')).toContainText(/Associate Software Quality Engineer/i);
 
     await expect(page.locator('#lab')).toContainText(/Playwright/i);
     await expect(page.locator('#lab')).toContainText(/homepage\.spec\.ts/i);
@@ -35,6 +43,9 @@ test.describe('portfolio homepage', () => {
     await expect(page.locator('#certifications')).toContainText(/Inclusive Learning Experience Explorer/i);
 
     await expect(page.locator('#education')).toContainText(/B\.Sc \(Hons\) in Information Technology/i);
+    await expect(page.locator('#education')).toContainText(/Second Class Upper Division/i);
+    await expect(page.locator('#education')).toContainText(/Wijeya Graphics/i);
+    await expect(page.locator('#education')).toContainText(/Diploma in Multimedia/i);
     await expect(page.locator('#education')).not.toContainText(/Master of Science/i);
     await expect(page.locator('#education')).not.toContainText(/In progress/i);
 
@@ -42,6 +53,7 @@ test.describe('portfolio homepage', () => {
     await expect(genki).toBeVisible();
     await expect(genki).toContainText('GENKI');
     await expect(genki).toContainText(/streetwear and anime-inspired apparel/i);
+    await expect(genki).toContainText(/I design and quality-gate/i);
     await expect(genki).toContainText(/Visual regressions gated/i);
 
     await expect(page.locator('[data-project="wealthos-automation"]')).toContainText(
@@ -62,6 +74,8 @@ test.describe('portfolio homepage', () => {
     await expect(page.locator('[data-tech="Playwright"]')).toBeVisible();
     await expect(page.locator('[data-tech="TypeScript"]')).toBeVisible();
     await expect(page.locator('[data-tech="Cursor"]')).toBeVisible();
+    await expect(page.locator('#stack')).toContainText(/Android/i);
+    await expect(page.locator('#stack')).toContainText(/Firebase/i);
   });
 
   test('lab sanity check prints a green run', async ({ page }) => {

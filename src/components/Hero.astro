@@ -21,6 +21,23 @@ import { profile } from '../data/content';
         {profile.about}
       </p>
     </div>
+    <dl
+      class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
+      data-testid="highlights"
+    >
+      {
+        profile.highlights.map((item) => (
+          <div class="rounded-2xl border border-line bg-panel px-4 py-5">
+            <dt class="font-mono text-[11px] uppercase tracking-[0.16em] text-mist">
+              {item.label}
+            </dt>
+            <dd class="mt-2 text-xl font-semibold tracking-tight text-signal">
+              {item.value}
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
     <ul class="flex flex-wrap items-center gap-2">
       {
         profile.personalSkills.map((skill) => (

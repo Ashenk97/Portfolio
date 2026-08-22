@@ -18,6 +18,11 @@ export default function Experience() {
                     {job.start} — {job.end}
                   </p>
                 </div>
+                {job.context ? (
+                  <p className="mt-1 font-mono text-xs uppercase tracking-[0.14em] text-mist/80">
+                    {job.context}
+                  </p>
+                ) : null}
                 <ul className="mt-3 space-y-1">
                   {job.roles.map((role) => (
                     <li key={`${role.title}-${role.start}`} className="text-signal">

@@ -31,14 +31,24 @@ import { nav, profile } from '../data/content';
       }
     </nav>
 
-    <a
-      href={profile.linkedin}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="hidden font-mono text-xs uppercase tracking-[0.16em] text-signal md:inline hover:underline"
-    >
-      LinkedIn
-    </a>
+    <div class="hidden items-center gap-4 md:flex">
+      <a
+        href={profile.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-mono text-xs uppercase tracking-[0.16em] text-mist hover:text-signal"
+      >
+        GitHub
+      </a>
+      <a
+        href={profile.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-mono text-xs uppercase tracking-[0.16em] text-signal hover:underline"
+      >
+        LinkedIn
+      </a>
+    </div>
 
     <details class="relative lg:hidden">
       <summary
@@ -61,10 +71,18 @@ import { nav, profile } from '../data/content';
           ))
         }
         <a
+          href={profile.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-1 block rounded-md px-3 py-2 font-mono text-xs uppercase tracking-[0.16em] text-mist hover:bg-ink hover:text-signal"
+        >
+          GitHub
+        </a>
+        <a
           href={profile.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          class="mt-1 block rounded-md px-3 py-2 font-mono text-xs uppercase tracking-[0.16em] text-signal hover:bg-ink"
+          class="block rounded-md px-3 py-2 font-mono text-xs uppercase tracking-[0.16em] text-signal hover:bg-ink"
         >
           LinkedIn
         </a>
