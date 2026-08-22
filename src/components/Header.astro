@@ -8,11 +8,13 @@ import { nav, profile } from '../data/content';
 >
   <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4">
     <a href="/" class="group no-underline" aria-label={profile.name}>
-      <span
-        class="grid h-12 w-12 place-items-center rounded-xl border border-signal/40 bg-signal/10 font-mono text-sm font-semibold tracking-wider text-signal"
-      >
-        AK
-      </span>
+      <img
+        src="/favicon.svg"
+        alt=""
+        width="48"
+        height="48"
+        class="h-12 w-12 rounded-xl"
+      />
     </a>
 
     <nav aria-label="Primary" class="hidden items-center gap-4 xl:gap-5 lg:flex">
@@ -20,7 +22,7 @@ import { nav, profile } from '../data/content';
         nav.map((item) => (
           <a
             href={item.href}
-            class="font-mono text-[11px] uppercase tracking-[0.16em] text-mist transition-colors hover:text-signal"
+            class="whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.16em] text-mist transition-colors [word-spacing:-0.45em] hover:text-signal"
           >
             {item.label}
           </a>
@@ -61,7 +63,7 @@ import { nav, profile } from '../data/content';
           nav.map((item) => (
             <a
               href={item.href}
-              class="block rounded-md px-3 py-2 font-mono text-xs uppercase tracking-[0.16em] text-mist hover:bg-ink hover:text-signal"
+              class="block whitespace-nowrap rounded-md px-3 py-2 font-mono text-xs uppercase tracking-[0.16em] text-mist [word-spacing:-0.45em] hover:bg-ink hover:text-signal"
             >
               {item.label}
             </a>

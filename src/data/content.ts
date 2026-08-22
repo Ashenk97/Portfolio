@@ -237,6 +237,7 @@ export const projects: Project[] = [
     description:
       'Streetwear and anime-inspired apparel I design and quality-gate. The storefront is treated like a product under test. Checkout, inventory, and visuals are checked before a customer ever sees a break.',
     status: 'featured',
+    href: 'https://github.com/Ashenk97/Genki_Test',
     metrics: [
       { value: 'Pre-launch', label: 'Visual regressions gated' },
       { value: 'Checkout', label: 'Risk-based coverage' },

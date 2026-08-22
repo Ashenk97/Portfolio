@@ -60,6 +60,7 @@ test.describe('portfolio homepage', () => {
 
     const genki = page.locator('[data-project="genki"]');
     await expect(genki).toBeVisible();
+    await expect(genki).toHaveAttribute('href', 'https://github.com/Ashenk97/Genki_Test');
     await expect(genki).toContainText('GENKI');
     await expect(genki).toContainText(/streetwear and anime-inspired apparel/i);
     await expect(genki).toContainText(/I design and quality-gate/i);
