@@ -15,9 +15,11 @@ test.describe('portfolio homepage', () => {
     await expect(page.locator('#hero')).toContainText(/Test strategy/i);
     await expect(page.locator('#hero')).toContainText(/Graphic design/i);
     await expect(page.locator('#hero')).toContainText(/manual and exploratory testing/i);
+    await expect(page.locator('#hero')).not.toContainText(/Risk-based testing/i);
+    await expect(page.locator('#hero')).not.toContainText(/Stakeholder collaboration/i);
     await expect(page.getByTestId('highlights')).toContainText(/Years in quality engineering/i);
     await expect(page.getByTestId('highlights')).toContainText(/Hackathon winner/i);
-    await expect(page.getByTestId('highlights')).toContainText(/Second Class|2nd Upper/i);
+    await expect(page.getByTestId('highlights')).not.toContainText(/2nd Upper/i);
     await expect(page.locator('#hero')).not.toContainText(/CTAL-TAE/i);
     await expect(page.getByRole('navigation', { name: 'Primary' })).toBeVisible();
   });
@@ -35,9 +37,14 @@ test.describe('portfolio homepage', () => {
     await expect(page.locator('#lab')).toContainText(/homepage\.spec\.ts/i);
     await expect(page.getByTestId('run-sanity-check')).toBeVisible();
 
-    await expect(page.locator('#certifications')).toContainText(/ISTQB Certified Tester/i);
-    await expect(page.locator('#certifications')).toContainText(/Test Automation Engineering/i);
+    await expect(page.locator('#certifications')).toContainText(/Advanced Level Test Automation Engineering/i);
     await expect(page.locator('#certifications')).toContainText(/Foundation Level/i);
+    await expect(page.locator('#certifications')).toContainText(/ISTQB Certified Tester/i);
+    await expect(page.locator('#certifications')).toContainText(/implement or improve on test automation/i);
+    await expect(page.locator('#certifications')).toContainText(/cornerstone of essential testing knowledge/i);
+    await expect(page.locator('#certifications')).not.toContainText(/Pinned/i);
+    await expect(page.locator('#certifications')).not.toContainText(/CTAL-TAE/i);
+    await expect(page.locator('#certifications')).not.toContainText(/CTFL/i);
     await expect(page.locator('#certifications')).toContainText(/Lean Awareness/i);
     await expect(page.locator('#certifications')).toContainText(/Pearson\+ Hackathon Winner/i);
     await expect(page.locator('#certifications')).toContainText(/Inclusive Learning Experience Explorer/i);
@@ -46,6 +53,7 @@ test.describe('portfolio homepage', () => {
     await expect(page.locator('#education')).toContainText(/Second Class Upper Division/i);
     await expect(page.locator('#education')).toContainText(/Wijeya Graphics/i);
     await expect(page.locator('#education')).toContainText(/Diploma in Multimedia/i);
+    await expect(page.locator('#education')).not.toContainText(/GENKI/i);
     await expect(page.locator('#education')).not.toContainText(/Master of Science/i);
     await expect(page.locator('#education')).not.toContainText(/In progress/i);
 
@@ -55,13 +63,16 @@ test.describe('portfolio homepage', () => {
     await expect(genki).toContainText(/streetwear and anime-inspired apparel/i);
     await expect(genki).toContainText(/I design and quality-gate/i);
     await expect(genki).toContainText(/Visual regressions gated/i);
+    await expect(page.locator('#projects')).not.toContainText(/Case study/i);
+    await expect(page.locator('[data-project="wealthos-automation"]')).toHaveCount(0);
+    await expect(page.locator('[data-project="pearson-quality"]')).toHaveCount(0);
 
-    await expect(page.locator('[data-project="wealthos-automation"]')).toContainText(
-      /40%/,
-    );
-    await expect(page.locator('[data-project="wealthos-automation"]')).toContainText(
-      /Faster deploy confidence/i,
-    );
+    const selfHealing = page.locator('[data-project="self-healing-e2e"]');
+    await expect(selfHealing).toBeVisible();
+    await expect(selfHealing).toContainText(/Self-healing E2E framework/i);
+    await expect(selfHealing).toContainText(/Planning to do/i);
+    await expect(selfHealing).toContainText(/page objects/i);
+    await expect(selfHealing).toContainText(/Broken locators recovered/i);
 
     await expect(page.locator('#roadmap')).toContainText(/Advanced Level Test Automation Engineering/i);
     await expect(page.locator('#roadmap')).toContainText(/ISTQB AI Testing/i);

@@ -15,7 +15,7 @@ export default function Experience() {
                 <div className="flex flex-wrap items-baseline justify-between gap-3">
                   <h3 className="text-2xl font-bold tracking-tight">{job.company}</h3>
                   <p className="font-mono text-xs uppercase tracking-[0.16em] text-mist">
-                    {job.start} — {job.end}
+                    {job.start} - {job.end}
                   </p>
                 </div>
                 {job.context ? (
@@ -29,7 +29,7 @@ export default function Experience() {
                       {role.title}
                       {job.roles.length > 1 ? (
                         <span className="ml-2 font-mono text-xs text-mist">
-                          {role.start} — {role.end}
+                          {role.start} - {role.end}
                         </span>
                       ) : null}
                     </li>

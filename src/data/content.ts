@@ -4,7 +4,7 @@ export const profile = {
   headline:
     'I lead test automation strategy and build quality systems that keep releases reliable.',
   about:
-    'I focus on automation architecture, risk-based coverage, and software that holds up in production. I design Playwright and TypeScript suites, API and performance checks, and CI quality gates — and I still go deep on manual and exploratory testing when the risk calls for it. Then I work with engineering and product to catch defects early and keep the suite maintainable. Outside the pipeline I design: graphic work and GENKI, because quality and craft are the same instinct.',
+    'I focus on automation architecture, risk-based coverage, and software that holds up in production. I design Playwright and TypeScript suites, API and performance checks, and CI quality gates. I still go deep on manual and exploratory testing when the risk calls for it. Then I work with engineering and product to catch defects early and keep the suite maintainable. Outside the pipeline I design, because quality and craft are the same instinct.',
   location: 'Kurunegala, Sri Lanka',
   phone: '+94 71 0948 240',
   phoneHref: 'tel:+94710948240',
@@ -15,15 +15,12 @@ export const profile = {
     { value: '4+', label: 'Years in quality engineering' },
     { value: 'Manual + auto', label: 'UI, API, and exploratory coverage' },
     { value: 'Pearson+', label: 'Hackathon winner, 2023' },
-    { value: '2nd Upper', label: 'B.Sc (Hons) Software Engineering' },
   ],
   personalSkills: [
     'Test strategy',
     'Automation architecture',
-    'Risk-based testing',
     'Manual & exploratory testing',
     'Graphic design',
-    'Stakeholder collaboration',
   ],
 } as const;
 
@@ -86,23 +83,23 @@ export const credly = {
 
 export const certifications: Certification[] = [
   {
-    name: 'ISTQB Certified Tester',
-    level: 'Advanced Level Test Automation Engineering',
+    name: 'Advanced Level Test Automation Engineering',
+    level: 'ISTQB Certified Tester',
     acronym: 'CTAL-TAE',
     issuer: 'ISTQB',
-    date: 'Certified',
+    date: '',
     featured: true,
     summary:
-      'The advanced credential for automation architecture, clean test design, and suites that live in CI.',
+      'The Certified Tester Advanced Level Test Automation Engineering qualification is aimed at anyone involved in software testing and test automation. The syllabus is targeted to the test engineer looking to implement or improve on test automation. It defines methods and practices that can support a sustainable solution.',
   },
   {
-    name: 'ISTQB Certified Tester',
-    level: 'Foundation Level',
+    name: 'Foundation Level',
+    level: 'ISTQB Certified Tester',
     acronym: 'CTFL',
     issuer: 'SLSTB / ISTQB',
     date: 'March 2025',
     summary:
-      'The foundation: testing principles, design techniques, and quality processes used across the software lifecycle.',
+      'The ISTQB Certified Tester Foundation Level certification is the cornerstone of essential testing knowledge that can be applied to real-world scenarios. The syllabus provides a comprehensive understanding of the terminology and concepts used in the testing domain worldwide, making it relevant for all software delivery approaches and practices, including Waterfall, Agile, DevOps, and Continuous Delivery.',
   },
 ];
 
@@ -175,7 +172,7 @@ export const experience: Experience[] = [
     end: 'Nov 2021',
     roles: [
       {
-        title: 'Intern — Mobile Software Engineer',
+        title: 'Intern, Mobile Software Engineer',
         start: 'May 2021',
         end: 'Nov 2021',
       },
@@ -200,20 +197,19 @@ export const education: Education[] = [
     school: 'SLIIT',
     credential:
       'B.Sc (Hons) in Information Technology, specializing in Software Engineering',
-    years: '2018 — 2022',
+    years: '2018 - 2022',
     detail: 'Second Class Upper Division',
   },
   {
     school: 'Wijeya Graphics',
     credential: 'Diploma in Multimedia',
-    years: '2017 — 2019',
-    detail: 'Graphic design and visual craft — the same eye I bring to UI quality and GENKI.',
+    years: '2017 - 2019',
   },
   {
     school: 'Wayamba Royal College',
     credential: 'G.C.E. Advanced Level',
-    years: '2003 — 2016',
-    detail: '2016 — ICT (C), Geography (C), English Literature (S)',
+    years: '2003 - 2016',
+    detail: '2016 - ICT (C), Geography (C), English Literature (S)',
   },
 ];
 
@@ -227,7 +223,7 @@ export type Project = {
   name: string;
   tag: string;
   description: string;
-  status: 'featured' | 'coming-soon';
+  status: 'featured' | 'planned';
   href?: string;
   metrics: ProjectMetric[];
 };
@@ -238,7 +234,7 @@ export const projects: Project[] = [
     name: 'GENKI',
     tag: 'Brand / Commerce',
     description:
-      'Streetwear and anime-inspired apparel I design and quality-gate. The storefront is treated like a product under test — checkout, inventory, and visuals checked before a customer ever sees a break.',
+      'Streetwear and anime-inspired apparel I design and quality-gate. The storefront is treated like a product under test. Checkout, inventory, and visuals are checked before a customer ever sees a break.',
     status: 'featured',
     metrics: [
       { value: 'Pre-launch', label: 'Visual regressions gated' },
@@ -247,29 +243,16 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: 'wealthos-automation',
-    name: 'Playwright E2E at WealthOS',
+    slug: 'self-healing-e2e',
+    name: 'Self-healing E2E framework',
     tag: 'Test automation',
     description:
-      'A typed Playwright setup that replaced brittle manual regression with clean UI and API coverage. It blocked a critical UI break before production and cut the wait for a green deploy.',
-    status: 'coming-soon',
+      'A Playwright and TypeScript suite on an e-commerce demo site, built with page objects. When a locator misses after a UI change, a wrapper captures the DOM, asks an LLM for a new selector, retries the step, and writes a healing report so the run can continue.',
+    status: 'planned',
     metrics: [
-      { value: '40%', label: 'Faster deploy confidence' },
-      { value: 'Pre-prod', label: 'UI regression blocked' },
-      { value: 'E2E + API', label: 'Layered coverage' },
-    ],
-  },
-  {
-    slug: 'pearson-quality',
-    name: 'API and performance quality',
-    tag: 'Testing',
-    description:
-      'REST Assured suites and JMeter profiles that cut API regression time, caught leaks earlier, and found bottlenecks before users did. SonarQube and JaCoCo kept the suite honest.',
-    status: 'coming-soon',
-    metrics: [
-      { value: 'Hours saved', label: 'API regression time cut' },
-      { value: 'Leakage ↓', label: 'Defects caught in-cycle' },
-      { value: 'JMeter', label: 'Bottlenecks before prod' },
+      { value: 'Heal', label: 'Broken locators recovered' },
+      { value: 'LLM', label: 'Selector from DOM snapshot' },
+      { value: 'CI', label: 'Healing report in Actions' },
     ],
   },
 ];
@@ -353,7 +336,7 @@ export const roadmap = [
     title: 'ISTQB Advanced Level Test Automation Engineering',
     meta: 'CTAL-TAE · completed',
     detail:
-      'Automation architecture, clean test design, and CI-backed suites — the foundation everything else builds on.',
+      'Automation architecture, clean test design, and CI-backed suites. The foundation everything else builds on.',
   },
   {
     id: 'msc-it',
@@ -403,7 +386,7 @@ export const usesPage = {
         },
         {
           name: 'Windows Terminal + bash',
-          detail: 'Playwright, git, and npm — without leaving the keyboard.',
+          detail: 'Playwright, git, and npm, without leaving the keyboard.',
         },
       ],
     },
@@ -422,7 +405,7 @@ export const usesPage = {
         },
         {
           name: 'REST Assured + Postman',
-          detail: 'Contract-heavy API work — automated suites plus exploratory collections.',
+          detail: 'Contract-heavy API work: automated suites plus exploratory collections.',
         },
         {
           name: 'Apache JMeter',

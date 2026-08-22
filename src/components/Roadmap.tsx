@@ -15,7 +15,7 @@ export default function Roadmap() {
       <div className="mx-auto max-w-6xl px-5 py-24">
         <SectionHeader
           kicker="Trajectory"
-          title="What's done — and what's planned next."
+          title="What's done, and what's planned next."
         />
         <ol className="relative mt-14 space-y-8 before:absolute before:top-2 before:bottom-2 before:left-[11px] before:w-px before:bg-line sm:before:left-[15px]">
           {roadmap.map((node, index) => (

@@ -5,6 +5,7 @@ import FadeIn from './FadeIn';
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const isFeatured = project.status === 'featured';
+  const statusLabel = isFeatured ? 'Featured' : 'Planning to do';
 
   return (
     <FadeIn delay={index * 0.08} className="h-full">
@@ -26,7 +27,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 isFeatured ? 'bg-ember/15 text-ember' : 'bg-ink text-mist'
               }`}
             >
-              {isFeatured ? 'Featured' : 'Coming soon'}
+              {statusLabel}
             </span>
           </div>
           <h3 className="mt-5 text-2xl font-bold tracking-tight">{project.name}</h3>
@@ -53,11 +54,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             >
               Open project
             </a>
-          ) : (
-            <p className="mt-6 font-mono text-xs uppercase tracking-[0.16em] text-mist/70">
-              Case study coming
-            </p>
-          )}
+          ) : null}
         </article>
       </TiltCard>
     </FadeIn>
@@ -72,7 +69,7 @@ export default function Projects() {
           kicker="Selected work"
           title="Defects prevented. Time saved. Not just features shipped."
         />
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className={`mt-12 grid gap-5 ${projects.length > 1 ? 'sm:grid-cols-2' : ''}`}>
           {projects.map((project, index) => (
             <ProjectCard key={project.slug} project={project} index={index} />
           ))}

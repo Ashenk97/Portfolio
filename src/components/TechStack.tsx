@@ -73,7 +73,7 @@ export default function TechStack() {
           title="What I reach for when coverage has to hold."
         />
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">
-          Three daily drivers up top. Everything else grouped by job — so you can scan the stack
+          Three daily drivers up top. Everything else grouped by job, so you can scan the stack
           in seconds, not scroll a catalog.
         </p>
 
