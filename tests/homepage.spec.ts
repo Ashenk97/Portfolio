@@ -42,6 +42,7 @@ test.describe('portfolio homepage', () => {
     await expect(page.locator('#certifications')).toContainText(/ISTQB Certified Tester/i);
     await expect(page.locator('#certifications')).toContainText(/implement or improve on test automation/i);
     await expect(page.locator('#certifications')).toContainText(/cornerstone of essential testing knowledge/i);
+    await expect(page.locator('#certifications')).toContainText(/August 2026/i);
     await expect(page.locator('#certifications')).not.toContainText(/Pinned/i);
     await expect(page.locator('#certifications')).not.toContainText(/CTAL-TAE/i);
     await expect(page.locator('#certifications')).not.toContainText(/CTFL/i);
@@ -87,6 +88,11 @@ test.describe('portfolio homepage', () => {
     await expect(page.locator('[data-tech="Cursor"]')).toBeVisible();
     await expect(page.locator('#stack')).toContainText(/Android/i);
     await expect(page.locator('#stack')).toContainText(/Firebase/i);
+    await expect(page.locator('#stack')).toContainText(/Design/i);
+    await expect(page.locator('[data-tech="Photoshop"]')).toBeVisible();
+    await expect(page.locator('[data-tech="Illustrator"]')).toBeVisible();
+    await expect(page.locator('[data-tech="Figma"]')).toBeVisible();
+    await expect(page.locator('[data-tech="Adobe XD"]')).toBeVisible();
   });
 
   test('lab sanity check prints a green run', async ({ page }) => {

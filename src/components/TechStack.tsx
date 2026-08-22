@@ -60,6 +60,12 @@ const LAYERS = [
     blurb: 'Build, version, and move the work.',
     tools: ['Cursor', 'GitHub', 'GitLab', 'Bitbucket', 'Maven', 'Flutter', 'Android', 'Firebase'],
   },
+  {
+    id: 'design',
+    label: 'Design',
+    blurb: 'Layouts, marks, and UI mockups.',
+    tools: ['Photoshop', 'Illustrator', 'Figma', 'Adobe XD'],
+  },
 ] as const;
 
 const knownTools = new Set(techStack.map((item) => item.name));

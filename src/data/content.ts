@@ -87,7 +87,7 @@ export const certifications: Certification[] = [
     level: 'ISTQB Certified Tester',
     acronym: 'CTAL-TAE',
     issuer: 'ISTQB',
-    date: '',
+    date: 'August 2026',
     featured: true,
     summary:
       'The Certified Tester Advanced Level Test Automation Engineering qualification is aimed at anyone involved in software testing and test automation. The syllabus is targeted to the test engineer looking to implement or improve on test automation. It defines methods and practices that can support a sustainable solution.',
@@ -291,6 +291,10 @@ export const techStack: TechItem[] = [
   { name: 'Flutter', category: 'Mobile' },
   { name: 'Android', category: 'Mobile' },
   { name: 'Firebase', category: 'Mobile' },
+  { name: 'Photoshop', category: 'Design' },
+  { name: 'Illustrator', category: 'Design' },
+  { name: 'Figma', category: 'Design' },
+  { name: 'Adobe XD', category: 'Design' },
 ];
 
 export const nav = [
