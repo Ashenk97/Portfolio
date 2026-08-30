@@ -22,7 +22,12 @@ import { nav, profile } from '../data/content';
         nav.map((item) => (
           <a
             href={item.href}
-            class="whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.16em] text-mist transition-colors [word-spacing:-0.45em] hover:text-signal"
+            class:list={[
+              'whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.16em] transition-colors [word-spacing:-0.45em]',
+              item.href === '/#connect'
+                ? 'ml-2 border-l border-line pl-4 text-signal hover:text-paper'
+                : 'text-mist hover:text-signal',
+            ]}
           >
             {item.label}
           </a>
@@ -63,7 +68,12 @@ import { nav, profile } from '../data/content';
           nav.map((item) => (
             <a
               href={item.href}
-              class="block whitespace-nowrap rounded-md px-3 py-2 font-mono text-xs uppercase tracking-[0.16em] text-mist [word-spacing:-0.45em] hover:bg-ink hover:text-signal"
+              class:list={[
+                'block whitespace-nowrap rounded-md px-3 py-2 font-mono text-xs uppercase tracking-[0.16em] [word-spacing:-0.45em] hover:bg-ink',
+                item.href === '/#connect'
+                  ? 'text-signal hover:text-paper'
+                  : 'text-mist hover:text-signal',
+              ]}
             >
               {item.label}
             </a>

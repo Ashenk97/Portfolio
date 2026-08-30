@@ -305,7 +305,16 @@ export const nav = [
   { href: '/#projects', label: 'Projects' },
   { href: '/#roadmap', label: 'Roadmap' },
   { href: '/#stack', label: 'Tech stack' },
+  { href: '/#connect', label: 'Connect' },
 ] as const;
+
+export const connect = {
+  intro:
+    'I am not looking for a new role right now. If you want to talk testing, automation, or a collaboration, send a note.',
+  seeking: 'Currently not looking for a job',
+  basedIn: 'Sri Lanka · Open to remote',
+  responseTime: 'Within 24 hours',
+} as const;
 
 export const qaInAction = {
   fileName: 'homepage.spec.ts',
