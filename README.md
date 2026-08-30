@@ -1,3 +1,5 @@
+<div align="center">
+
 # ASHEN KAVINDA — Senior QA Portfolio
 
 ![Ashen Kavinda — Senior QA Portfolio](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=32&duration=2800&pause=1200&color=3EE0C5&center=true&vCenter=true&multiline=true&width=780&height=100&lines=ASHEN+KAVINDA;%F0%9F%9A%80+Senior+QA+Portfolio)
@@ -17,6 +19,8 @@
 [![CI](https://img.shields.io/github/actions/workflow/status/Ashenk97/Portfolio/playwright.yml?style=flat-square&label=Playwright&logo=github)](https://github.com/Ashenk97/Portfolio/actions/workflows/playwright.yml)
 [![Node](https://img.shields.io/badge/Node-22-339933?style=flat-square&logo=nodedotjs&logoColor=white)](./.node-version)
 [![Cost](https://img.shields.io/badge/Stack-Free%20tier-brightgreen?style=flat-square)](#tech-stack)
+
+</div>
 
 ---
 
