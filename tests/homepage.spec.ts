@@ -94,6 +94,15 @@ test.describe('portfolio homepage', () => {
     await expect(page.locator('[data-tech="Adobe Illustrator"]')).toBeVisible();
     await expect(page.locator('[data-tech="Figma"]')).toBeVisible();
     await expect(page.locator('[data-tech="Adobe XD"]')).toBeVisible();
+
+    await expect(page.locator('#connect')).toContainText(/Let's connect/i);
+    await expect(page.locator('#connect')).toContainText(/currently not looking for a job/i);
+    await expect(page.locator('#connect')).toContainText(/ashenk720@gmail.com/i);
+    await expect(page.locator('#connect')).toContainText(/LinkedIn profile/i);
+    await expect(page.locator('#connect')).toContainText(/GitHub/i);
+    await expect(page.getByRole('button', { name: /send message/i })).toBeVisible();
+    await expect(page.locator('footer')).toContainText(/All rights reserved/i);
+    await expect(page.locator('footer')).not.toContainText(/ashenk720@gmail.com/i);
   });
 
   test('lab sanity check prints a green run', async ({ page }) => {
@@ -127,5 +136,9 @@ test.describe('portfolio homepage', () => {
     await nav.getByRole('link', { name: 'Tech stack' }).click();
     await expect(page).toHaveURL(/#stack$/);
     await expect(page.locator('#stack')).toBeVisible();
+
+    await nav.getByRole('link', { name: 'Connect' }).click();
+    await expect(page).toHaveURL(/#connect$/);
+    await expect(page.locator('#connect')).toBeVisible();
   });
 });
