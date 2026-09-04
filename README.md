@@ -4,7 +4,7 @@
 
 ![Ashen Kavinda — Senior QA Portfolio](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=32&duration=2800&pause=1200&color=3EE0C5&center=true&vCenter=true&multiline=true&width=780&height=100&lines=ASHEN+KAVINDA;%F0%9F%9A%80+Senior+QA+Portfolio)
 
-## Static Astro site for a [Software Quality Assurance Engineer](https://portfolio-eight-neon-c4csi6obc0.vercel.app/)
+## Static Astro site for a [Software Quality Assurance Engineer](https://ashenk-portfolio.vercel.app/)
 
 **Astro** · **React islands** · **Tailwind CSS** · **Framer Motion** · **Playwright**
 
@@ -15,7 +15,7 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Host-Vercel%20Hobby-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
-[![Live](https://img.shields.io/badge/Live-portfolio.vercel.app-3EE0C5?style=flat-square)](https://portfolio-eight-neon-c4csi6obc0.vercel.app/)
+[![Live](https://img.shields.io/badge/Live-ashenk--portfolio.vercel.app-3EE0C5?style=flat-square)](https://ashenk-portfolio.vercel.app/)
 [![CI](https://img.shields.io/github/actions/workflow/status/Ashenk97/Portfolio/playwright.yml?style=flat-square&label=Playwright&logo=github)](https://github.com/Ashenk97/Portfolio/actions/workflows/playwright.yml)
 [![Node](https://img.shields.io/badge/Node-22-339933?style=flat-square&logo=nodedotjs&logoColor=white)](./.node-version)
 [![Cost](https://img.shields.io/badge/Stack-Free%20tier-brightgreen?style=flat-square)](#tech-stack)
@@ -37,7 +37,7 @@ Dark theme by default. React and Framer Motion only as islands. Playwright cover
 | **#lab** | In-page Playwright replay plus the GitHub Actions badge |
 | **CI** | Chromium homepage suite on every push |
 
-**Live site:** [https://portfolio-eight-neon-c4csi6obc0.vercel.app/](https://portfolio-eight-neon-c4csi6obc0.vercel.app/)
+**Live site:** [https://ashenk-portfolio.vercel.app/](https://ashenk-portfolio.vercel.app/)
 
 ---
 
@@ -164,7 +164,7 @@ npx vercel --yes --prod
 
 Or import the GitHub repo in the Vercel dashboard. `vercel.json` already sets the framework, build command, and `dist` output. Stay on the Hobby plan.
 
-Production URL is `site` in `astro.config.mjs`: [https://portfolio-eight-neon-c4csi6obc0.vercel.app/](https://portfolio-eight-neon-c4csi6obc0.vercel.app/).
+Production URL is `site` in `astro.config.mjs`: [https://ashenk-portfolio.vercel.app/](https://ashenk-portfolio.vercel.app/).
 
 ### Cloudflare Pages
 
