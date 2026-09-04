@@ -58,6 +58,18 @@ test.describe('portfolio homepage', () => {
     await expect(page.locator('#education')).not.toContainText(/Master of Science/i);
     await expect(page.locator('#education')).not.toContainText(/In progress/i);
 
+    const qualityCentral = page.locator('[data-project="quality-central"]');
+    await expect(qualityCentral).toBeVisible();
+    await expect(qualityCentral).toHaveAttribute(
+      'href',
+      'https://quality-central.vercel.app',
+    );
+    await expect(qualityCentral).toContainText('Quality Central');
+    await expect(qualityCentral).toContainText(/gamified hub/i);
+    await expect(qualityCentral).toContainText(/sandbox seeded with bugs/i);
+    await expect(qualityCentral).toContainText(/Open live site/i);
+    await expect(qualityCentral).toContainText(/Shipped on Vercel/i);
+
     const genki = page.locator('[data-project="genki"]');
     await expect(genki).toBeVisible();
     await expect(genki).toHaveAttribute('href', 'https://github.com/Ashenk97/Genki_Test');
@@ -65,6 +77,7 @@ test.describe('portfolio homepage', () => {
     await expect(genki).toContainText(/streetwear and anime-inspired apparel/i);
     await expect(genki).toContainText(/I design and quality-gate/i);
     await expect(genki).toContainText(/Visual regressions gated/i);
+    await expect(genki).toContainText(/View on GitHub/i);
     await expect(page.locator('#projects')).not.toContainText(/Case study/i);
     await expect(page.locator('[data-project="wealthos-automation"]')).toHaveCount(0);
     await expect(page.locator('[data-project="pearson-quality"]')).toHaveCount(0);

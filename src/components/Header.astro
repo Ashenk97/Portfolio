@@ -4,7 +4,7 @@ import { nav, profile } from '../data/content';
 
 <header
   transition:persist="site-header"
-  class="sticky top-0 z-40 border-b border-line/70 bg-void/80 backdrop-blur-md"
+  class="site-header sticky z-50 border-b border-line/70 bg-void/80 backdrop-blur-md"
 >
   <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4">
     <a href="/" class="group no-underline" aria-label={profile.name}>
@@ -99,3 +99,19 @@ import { nav, profile } from '../data/content';
     </details>
   </div>
 </header>
+
+<script>
+  function syncVisualViewportTop() {
+    const offset = window.visualViewport?.offsetTop ?? 0;
+    document.documentElement.style.setProperty('--vv-top', `${offset}px`);
+  }
+
+  syncVisualViewportTop();
+
+  if (document.documentElement.dataset.vvBound !== 'true') {
+    document.documentElement.dataset.vvBound = 'true';
+    window.visualViewport?.addEventListener('resize', syncVisualViewportTop);
+    window.visualViewport?.addEventListener('scroll', syncVisualViewportTop);
+    window.addEventListener('orientationchange', syncVisualViewportTop);
+  }
+</script>

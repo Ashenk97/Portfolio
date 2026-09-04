@@ -45,7 +45,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       </dl>
       {project.href ? (
         <p className="mt-6 font-mono text-xs uppercase tracking-[0.16em] text-signal">
-          View on GitHub
+          {project.cta ?? 'View on GitHub'}
         </p>
       ) : null}
     </>

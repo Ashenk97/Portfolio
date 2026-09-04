@@ -226,10 +226,26 @@ export type Project = {
   description: string;
   status: 'featured' | 'planned';
   href?: string;
+  cta?: string;
   metrics: ProjectMetric[];
 };
 
 export const projects: Project[] = [
+  {
+    slug: 'quality-central',
+    name: 'Quality Central',
+    tag: 'QA learning hub',
+    description:
+      'A gamified hub I built for QA engineers: MDX lessons, sequential unlocks, playgrounds, and a sandbox seeded with bugs. Live on Vercel — from first test case to capstone sprint.',
+    status: 'featured',
+    href: 'https://quality-central.vercel.app',
+    cta: 'Open live site',
+    metrics: [
+      { value: 'Live', label: 'Shipped on Vercel' },
+      { value: 'Sandbox', label: 'Hunt seeded defects' },
+      { value: 'Path', label: 'Foundation to Next-Gen' },
+    ],
+  },
   {
     slug: 'genki',
     name: 'GENKI',
