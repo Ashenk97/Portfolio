@@ -13,7 +13,7 @@ export const profile = {
   github: 'https://github.com/Ashenk97',
   highlights: [
     { value: '4+', label: 'Years in quality engineering' },
-    { value: 'Manual + auto', label: 'UI, API, and exploratory coverage' },
+    { value: 'Manual + Auto', label: 'UI, API, and exploratory coverage' },
     { value: 'Pearson+', label: 'Hackathon winner, 2023' },
   ],
   personalSkills: [
@@ -127,7 +127,7 @@ export const experience: Experience[] = [
     end: 'Present',
     roles: [
       {
-        title: 'Quality Assurance Engineer',
+        title: 'Software Quality Assurance Engineer',
         start: 'Sep 2024',
         end: 'Present',
       },
@@ -236,12 +236,12 @@ export const projects: Project[] = [
     name: 'Quality Central',
     tag: 'QA learning hub',
     description:
-      'A gamified hub I built for QA engineers: MDX lessons, sequential unlocks, playgrounds, and a sandbox seeded with bugs. Live on Vercel — from first test case to capstone sprint.',
+      'A gamified hub I built for QA engineers: MDX lessons, sequential unlocks, playgrounds, and a sandbox seeded with bugs. Live at qualitycentral.site — from first test case to capstone sprint.',
     status: 'featured',
-    href: 'https://quality-central.vercel.app',
+    href: 'https://qualitycentral.site/',
     cta: 'Open live site',
     metrics: [
-      { value: 'Live', label: 'Shipped on Vercel' },
+      { value: 'Live', label: 'Shipped on qualitycentral.site' },
       { value: 'Sandbox', label: 'Hunt seeded defects' },
       { value: 'Path', label: 'Foundation to Next-Gen' },
     ],

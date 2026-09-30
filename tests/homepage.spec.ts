@@ -62,13 +62,13 @@ test.describe('portfolio homepage', () => {
     await expect(qualityCentral).toBeVisible();
     await expect(qualityCentral).toHaveAttribute(
       'href',
-      'https://quality-central.vercel.app',
+      'https://qualitycentral.site/',
     );
     await expect(qualityCentral).toContainText('Quality Central');
     await expect(qualityCentral).toContainText(/gamified hub/i);
     await expect(qualityCentral).toContainText(/sandbox seeded with bugs/i);
     await expect(qualityCentral).toContainText(/Open live site/i);
-    await expect(qualityCentral).toContainText(/Shipped on Vercel/i);
+    await expect(qualityCentral).toContainText(/Shipped on qualitycentral\.site/i);
 
     const genki = page.locator('[data-project="genki"]');
     await expect(genki).toBeVisible();
